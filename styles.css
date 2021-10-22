@@ -1,0 +1,69 @@
+@font-face{ 
+    font-family: Cinzel, serif;
+	  src: url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap'); 
+} 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#landing_body{
+    max-height: 100vh;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+#bg-img{
+  position: absolute;
+  max-height: 100%;
+  z-index: -1; 
+}
+#wrapper-search{
+  display: flex;
+  align-items: column;
+  justify-content: center;
+}
+#center-landing{
+  max-width: 80%;
+  height: auto;
+  margin: auto;
+}
+
+.topnav {
+  background-color: black;
+  overflow: hidden;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.topnav_inner {
+  padding: 20%;
+}
+
+.topnav h1 {
+  float: left;
+  color: gold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav input {
+  color: black;
+  background-color: gold;
+}
+
+.topnav button {
+  color: black;
+  background-color: gold;
+  font-weight: bold;
+}
+
+.topnav h1:hover {
+  background-color: aqua;
+  color: white;
+}
