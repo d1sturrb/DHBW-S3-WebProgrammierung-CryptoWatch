@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <title>Luxury Real Estate</title>
+    <title>(Listing Name)</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"/>
   </head>
-  <body id="listing_body">
-
-
-    <div class="topnav">
-        <span class="topnav_inner"><h1>LUXURY REAL ESTATES</h1></span>
-        <span class="topnav_inner"><img src="https://media.istockphoto.com/vectors/search-icon-vector-id1068237878?k=20&m=1068237878&s=170667a&w=0&h=BpBnkSHoDP3tPTyBvzu_rWcVVb_c0dTSNs9XbC-xfc8=" width=50px height=50px></span>
-        <span class="topnav_inner"><input type="search" id="listing_search_button_top" class="title_search" placeholder="Berlin"></span>
-        <span class="topnav_inner"><button type="button" onclick="alert('Nope, this doesn\'t work yet.')">Log-In</button></span>
+  <body class="landing-body">
+    <div class="top-nav">
+        <div class="nav-container">
+            <div class="nav-column-logo">
+                <img class="nav-logo-img"
+                src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fhome-smile-fill.svg?v=1634912494195"/>
+            </div>
+            <div class="nav-column-search">
+                <div class="search_bar_top">
+                    <input
+                      class="input_search_top"
+                      type="text"
+                      name="search_real_estates"
+                      placeholder="Where do you want to live?"
+                  /><button class="search_button_top">Search</button></div>
+            </div>
+            <div class="nav-column-acc">
+                <img class="nav-acc-img"
+                 src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"/>
+            </div>
+    
+        </div>
     </div>
+    <div class="bg_slider_wrapper">
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+             <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img class="bg_img" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220">
+            <div class="text">(Caption Text)</div>
+            </div>
+        
+            <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img class="bg_img" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fwall-416060.jpg?v=1634918379325">
+            <div class="text">(Caption Two)</div>
+            </div>
+        
+            <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img class="bg_img" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fhouse-1477041.jpg?v=1634918378019">
+            <div class="text">(Caption Three)</div>
+            </div>
 
-
-
-
-
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </div>
   </body>
 </html>
