@@ -141,12 +141,14 @@ body {
 }
 /* ====== The Listing Part ====== */
 .top-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
   width: 100%;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 .nav-container {
   display: flex;
@@ -217,6 +219,25 @@ body {
   font-family: "Lato", sans-serif;
   vertical-align: 10px;
 }
+
+/* ====== The Finder Part ====== */
+.finder_container{
+  margin-top: 3vh;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: static;
+}
+.finder_item{
+  display: flex;
+  width: 90%;
+  height: 20vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 
 /* ====== The Slideshow on the Listing Html====== */
 .bg_slider_wrapper {
