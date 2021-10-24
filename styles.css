@@ -44,8 +44,8 @@ body {
   background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);
   background-clip: text;
   color: transparent;
-  background-size: 300%;
-  animation: fade_left_to_right 3s infinite alternate;
+  background-size: 400%;
+  animation: fade_left_to_right 5s infinite alternate;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -81,7 +81,10 @@ body {
   border-style: solid;
   border-width: 2px;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
+  background-clip: border-box;
+  border: solid border transparent;
+  border-radius: 1em;
 }
 
 #input_search_landing {
