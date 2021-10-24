@@ -221,7 +221,7 @@ body {
 /* ====== The Slideshow ====== */
 .bg_slider_wrapper {
   width: 100vw;
-  height: auto;
+  height: 100vh;
 }
 .slideshow-container {
   max-width: 100vw;
