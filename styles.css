@@ -94,11 +94,45 @@ body {
   align-items: center;
   justify-content: center;
 }
-.page_title {
+
+.company_name_text {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border-color: rgb(161, 168, 58);
+  font-style: italic;
+  font-weight: bold;
+  vertical-align: 10px;
+  background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);
+  background-clip: text;
+  color: transparent;
+  background-size: 300%;
+  animation: fade_left_to_right 3s infinite alternate;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fade_left_to_right {
+  0% { background-position: left; }
+  100% { background-position: right; }
+}
+
+#page_title {
   font-size: 60px;
   color: rgb(0, 0, 0);
   font-family: "Cinzel Decorative", cursive;
 }
+
+#nav_text {
+  margin: 0;
+  width: 300px;
+  height: 100px;
+  font-size: 30px;
+  color: #ee6352;
+}
+
 .search_bar {
   width: 100%;
   display: flex;
@@ -184,6 +218,7 @@ body {
   width: 50px;
   height: 50px;
 }
+
 .nav-acc-img {
   width: 50px;
   height: 50px;
