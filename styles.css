@@ -137,29 +137,53 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .input_search {
-  width: 90%;
-  height: 60px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0);
   text-align: center;
+  border-color: gold;
   border-radius: 20px;
-  border-color: rgb(161, 168, 58);
-  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 2px;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
+
+#input_search_landing {
+  width: 90%;
+  height:60px;
+  margin-bottom: 10px;
+}
+
+#input_search_nav {
+  width: 75%;
+  height: 40px;
+  vertical-align: 10px;
+}
+
 .search_button {
-  margin-top: 20px;
-  width: 50%;
-  height: 2em;
   border-radius: 15px;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(2, 2, 2, 0.8);
-  border-color: rgb(161, 168, 58);
+  background-color: rgb(2, 2, 2);
+  border-color: gold;
   font-family: "Lato", sans-serif;
   vertical-align: 10px;
 }
+
+#search_button_landing {
+  margin-top: 20px;
+  width: 50%;
+  height: 2em;
+}
+
+#search_button_nav {
+  margin-left: 40px;
+  width: 15%;
+  height: 40px;
+  border-width: 2px;
+}
+
 ::placeholder {
   font-size: 20px;
   vertical-align: 12.5px;
@@ -187,7 +211,7 @@ body {
   /*flex-direction: column;*/
   width: 90%;
   height: 90%;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 .nav-column-logo {
   display: flex;
@@ -195,7 +219,7 @@ body {
   align-items: center;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgb(255, 255, 255);
   border-radius: 7.5vh 0 0 7.5vh;
 }
 .nav-column-search {
@@ -203,7 +227,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 .nav-column-acc {
   display: flex;
@@ -211,7 +235,7 @@ body {
   align-items: center;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 0 7.5vh 7.5vh 0;
 }
 .nav-logo-img {
@@ -228,29 +252,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.input_search_top {
-  width: 75%;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  border-radius: 20px;
-  border-color: rgb(161, 168, 58);
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.8);
-  vertical-align: 10px;
-}
-.search_button_top {
-  margin-left: 40px;
-  width: 15%;
-  height: 40px;
-  border-radius: 15px;
-  font-size: 20px;
-  color: rgba(0, 0, 0, 0.6);
-  border-color: rgb(161, 168, 58);
-  background-color: rgba(255, 255, 255, 0.8);
-  font-family: "Lato", sans-serif;
-  vertical-align: 10px;
 }
 
 /* ====== The Finder Part ====== */
