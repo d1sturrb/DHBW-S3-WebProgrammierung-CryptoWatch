@@ -11,6 +11,10 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: "Lato", sans-serif;
+  background-color: rgb(241, 222, 222)
+}
+h2{
+  font-size: 30px;
 }
 .landing-body {
   height: 100vh;
@@ -74,14 +78,14 @@ body {
 }
 
 .input_search {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(93, 87, 107);
   text-align: center;
-  border-color: gold;
+  border-color: rgb(213, 185, 66);
   border-radius: 20px;
   border-style: solid;
   border-width: 2px;
   font-size: 20px;
-  color: rgb(255, 255, 255);
+  color: rgb(241, 222, 222);
   background-clip: border-box;
   border: solid border transparent;
   border-radius: 1em;
@@ -102,9 +106,9 @@ body {
 .search_button {
   border-radius: 15px;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.6);
-  background-color: rgb(2, 2, 2);
-  border-color: gold;
+  color: rgba(241, 222, 222);
+  background-color: rgb(93, 87, 107);
+  border-color: rgb(213, 185, 66);
   font-family: "Lato", sans-serif;
   vertical-align: 10px;
 }
@@ -127,6 +131,7 @@ body {
   vertical-align: 12.5px;
   padding: 0;
   font-family: "Lato", sans-serif;
+  color: rgb(241, 222, 222)
 }
 .titel_search_wrapper {
   display: flex;
@@ -149,7 +154,8 @@ body {
   /*flex-direction: column;*/
   width: 90%;
   height: 90%;
-  color: rgba(255, 255, 255, 0.8);
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  background-color: rgba(49, 135, 196, 0.9);
 }
 .nav-column-logo {
   display: flex;
@@ -157,15 +163,12 @@ body {
   align-items: center;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: rgb(255, 255, 255);
-  border-radius: 7.5vh 0 0 7.5vh;
 }
 .nav-column-search {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
 }
 .nav-column-acc {
   display: flex;
@@ -173,8 +176,6 @@ body {
   align-items: center;
   padding-right: 40px;
   padding-left: 40px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 0 7.5vh 7.5vh 0;
 }
 .nav-logo-img {
   width: 50px;
@@ -194,7 +195,7 @@ body {
 
 /* ====== The Finder Part ====== */
 .finder_container{
-  margin-top: 3vh;
+  margin-top: 5vh;
   width: 100%;
   height: auto;
   display: flex;
@@ -205,119 +206,33 @@ body {
 .finder_item{
   display: flex;
   width: 90%;
-  height: 20vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  height: 40vh;
+  background-color: rgba(93, 87, 107, 0.6);
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+}
+.img_teaser{
+  width: 40%;
+  height: 100%;
+  background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+}
+.teaser_text_wrapper{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(241, 222, 222);
+}
+.teaser_text{
+  display: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
 }
 
-
-
-/* ====== The Slideshow on the Listing Html====== */
-.bg_slider_wrapper {
-  width: 100vw;
-  height: 100vh;
-}
-.slideshow-container {
-  max-width: 100vw;
-  height: 100vh;
-  margin: auto;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-  background-color: #717171;
-}
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
 /* =================================================================
 To Do List:
 .input_search[{}
