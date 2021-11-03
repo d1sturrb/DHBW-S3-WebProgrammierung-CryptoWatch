@@ -2,7 +2,10 @@
     font-family: Cinzel, serif;
 	  src: url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap'); 
 } 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 /* ====== The Landingpage Part ====== */
 body {
   display: flex;
@@ -82,8 +85,13 @@ h2{
   text-align: center;
   border-color: rgb(213, 185, 66);
   border-radius: 20px;
+<<<<<<< Updated upstream
   border-style: solid;
   border-width: 2px;
+=======
+  border-color: gold;
+  margin-bottom: 10px;
+>>>>>>> Stashed changes
   font-size: 20px;
   color: rgb(241, 222, 222);
   background-clip: border-box;
@@ -106,9 +114,15 @@ h2{
 .search_button {
   border-radius: 15px;
   font-size: 20px;
+<<<<<<< Updated upstream
   color: rgba(241, 222, 222);
   background-color: rgb(93, 87, 107);
   border-color: rgb(213, 185, 66);
+=======
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(2, 2, 2, 0.8);
+  border-color: gold;
+>>>>>>> Stashed changes
   font-family: "Lato", sans-serif;
   vertical-align: 10px;
 }
@@ -192,6 +206,32 @@ h2{
   align-items: center;
   justify-content: center;
 }
+<<<<<<< Updated upstream
+=======
+.input_search_top {
+  width: 75%;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border-radius: 20px;
+  border-color: gold;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.8);
+  vertical-align: 10px;
+}
+.search_button_top {
+  margin-left: 40px;
+  width: 15%;
+  height: 40px;
+  border-radius: 15px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  border-color: rgb(161, 168, 58);
+  background-color: rgba(255, 255, 255, 0.8);
+  font-family: "Lato", sans-serif;
+  vertical-align: 10px;
+}
+>>>>>>> Stashed changes
 
 /* ====== The Finder Part ====== */
 .finder_container{
