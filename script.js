@@ -13,6 +13,16 @@ setTimeout(function(){
 }, 20000);
 */
 
+function searchFromLandingPage() {
+  /*location.href="./finder.html"*/
+  let used_form = document.getElementById("form_search_landing_page");
+  searched_currency = used_form.elements[0].value;
+  
+  fiat_currency = document.querySelector("input[name='fiat_currency']:checked").value;
+
+  alert("Getting " + searched_currency + "/" + fiat_currency)
+
+}
 
 
 

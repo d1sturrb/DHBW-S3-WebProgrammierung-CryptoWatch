@@ -21,32 +21,33 @@
       <div class="titel_search_wrapper">
         <h1 class="company_name_text" id="page_title">Coin Watcher</h1>
         
-        <div class="search_bar">
+        <form class="search_bar" id="form_search_landing_page" onsubmit=searchFromLandingPage()>
           <input class="input_search" id="input_search_landing"
-            type="text" name="search_real_estates"
-            placeholder="Which coin?"
+            type="text" name="cryptocurrency_name"
+            placeholder="Which coin are you looking for?"
+            autocomplete="off"
           />
 
-            <div class="radio_wrapper">
-          <label class="radio_container" id="EUR">
-            <span class="radio_name">Show Charts in Euro</span>
+        <div class="radio_wrapper">
+          <label class="radio_container">
+            <span class="radio_name">Currency: €</span>
             <input class="radio_button" type="radio" 
-              id="EUR" name="radio_currency" value="EUR" checked="checked"/>
+              id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
               <span class="radio_checkmark"></span>
           </label>
 
-          <label class="radio_container" id="USD">
-            <span class="radio_name">Show Charts in US Dollar</span>
+          <label class="radio_container">
+            <span class="radio_name">Currency: $</span>
             <input class="radio_button" type="radio" 
-              id="USD" name="radio_currency" value="USD"/>
+              id="radio_USD" name="fiat_currency" value="USD"/>
               <span class="radio_checkmark"></span>
           </label>
         </div>
+      </form>
 
         <button class="search_button" id="search_button_landing" 
-          type="submit" onclick="location.href='./finder.html'">
+          type="submit" onclick="searchFromLandingPage()">
           Search
         </button>
-    </div>
   </body>
 </html>

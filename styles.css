@@ -86,7 +86,6 @@ h2{
   border-style: groove;
   border-width: 0.1em;
   border-color: aqua;
-  margin-top: 0.5em;
   font-size: 20px;
   color: white;
   background-color: #8acaff00;
@@ -96,15 +95,16 @@ h2{
 #input_search_landing {
   width: 90%;
   height:60px;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
+
 .input_search_nav {
   text-align: center;
   border-radius: 0.5em;
   border-style: groove;
   border-width: 0.15em;
   border-color: white;
-  margin-top: 0.5em;
+  margin-top: 0em;
   font-size: 20px;
   color: white;
   background-color: #8acaff3a;
@@ -119,8 +119,6 @@ h2{
   align-items: center;
   justify-content: center;
   width: 28em;
-  margin-top: 0.5em;
-  margin-bottom: 3em;
   background-color: #8acaff28;
   font-size: 20px;
   color: white;
