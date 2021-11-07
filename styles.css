@@ -22,8 +22,9 @@ h2{
 }
 .bg_img {
   position: absolute;
-  min-height: 100%;
-  max-height: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
   z-index: -1;
 }
 .center_search {
