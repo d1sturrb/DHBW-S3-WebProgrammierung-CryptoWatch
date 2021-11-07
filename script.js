@@ -7,10 +7,11 @@ function showDiv(Div) {
   }
 };
 
+/*
 setTimeout(function(){
   alert("Sup! Boi"); 
 }, 20000);
-
+*/
 
 
 
