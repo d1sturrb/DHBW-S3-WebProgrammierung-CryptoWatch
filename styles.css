@@ -22,7 +22,7 @@ h2{
 }
 .bg_img {
   position: absolute;
-  width: 100%;
+  min-height: 100%;
   max-height: 100%;
   z-index: -1;
 }
