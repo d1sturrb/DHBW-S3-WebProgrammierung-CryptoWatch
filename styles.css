@@ -242,16 +242,17 @@ h2{
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
 }
 .img_teaser{
-  width: 40%;
+  width: 50%;
   height: 100%;
   background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  position: relative;
 }
 .teaser_text_wrapper{
-  width: 60%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -263,7 +264,17 @@ h2{
   align-items: center;
   width: 75%;
 }
-
+.open_graph{
+  background-color: rgba(93, 87, 107, 0);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: rotate(-90deg);
+  font-family: "Lato", sans-serif;
+  border-radius: 1em;
+}
 /* =================================================================
 To Do List:
 .input_search[{}

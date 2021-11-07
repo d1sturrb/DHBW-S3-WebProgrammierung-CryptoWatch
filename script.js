@@ -1,23 +1,15 @@
+function showDiv(Div) {
+  var x = document.getElementById(Div);
+  if(x.style.display=="none") {
+      x.style.display = "flex";
+  } else {
+      x.style.display = "none";
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+setTimeout(function(){
+  alert("Sup! Boi"); 
+}, 20000);
 
 
 

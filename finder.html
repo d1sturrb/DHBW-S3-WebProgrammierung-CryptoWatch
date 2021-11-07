@@ -3,7 +3,7 @@
 <head>
     <title>Luxury Real Estate</title>
     <link rel="stylesheet" href="styles.css" />
-    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
@@ -38,8 +38,10 @@
       </div>
     <div class="finder_container">
         <div class="finder_item">
-            <div class="img_teaser"></div>
-            <div class="teaser_text_wrapper">
+            <div class="img_teaser">
+              <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
+            </div>
+            <div class="teaser_text_wrapper" id="BTC" style="display: none;">
               <div class="teaser_text">
                 <h2>Mansion de Crypto</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et posuere nulla. Donec tristique dui ac mauris dapibus, eu consectetur nisi tincidunt. Nulla facilisi. Morbi blandit tristique dui ut interdum. Suspendisse iaculis, leo sit amet pulvinar pulvinar, sem massa venenatis magna, id luctus enim nunc ut ex. Cras quis elit in nunc posuere fermentum. Mauris ut sapien lorem. Quisque sit amet risus blandit enim bibendum congue vitae et lectus. Fusce pulvinar, eros sed consectetur rhoncus, ligula tellus finibus ipsum, tristique vulputate ex ipsum ac lacus. Sed pretium lacinia purus vel feugiat. Pellentesque posuere, ipsum ut posuere varius, est tortor maximus ipsum, eget rhoncus nunc risus ut velit. Suspendisse vitae sem ex.</p>
