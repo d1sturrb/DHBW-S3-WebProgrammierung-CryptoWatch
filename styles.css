@@ -41,16 +41,16 @@ h2{
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border-color: rgb(161, 168, 58);
   font-family: "Cinzel Decorative", cursive;
   font-style: italic;
   font-weight: bold;
   vertical-align: 10px;
-  background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);
+  /*background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);*/
+  background-image: linear-gradient(45deg, #038eff,#dceaff, #038eff, #dceaff);
   background-clip: text;
   color: transparent;
   background-size: 400%;
-  animation: fade_left_to_right 5s infinite alternate;
+  animation: fade_left_to_right 4s infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -66,10 +66,11 @@ h2{
   padding-top: 3em;
 }
 
-#nav_text {
+#nav_company_name_text {
   width: 400px;
   height: 100px;
   font-size: 30px;
+  border: none;
 }
 
 .search_bar {
@@ -80,38 +81,16 @@ h2{
 }
 
 .input_search {
-  background-color: rgb(93, 87, 107);
   text-align: center;
-  border-color: rgb(213, 185, 66);
-  border-radius: 20px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: gold;
-  margin-bottom: 10px;
+  border-radius: 2em;
+  border-style: groove;
+  border-width: 0.1em;
+  border-color: aqua;
+  margin-top: 0.5em;
   font-size: 20px;
-  color: rgb(241, 222, 222);
+  color: white;
+  background-color: #8acaff00;
   background-clip: border-box;
-  border: solid border transparent;
-  border-radius: 1em;
-}
-
-.radio_wrapper{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: rgb(93, 87, 107);
-  font-size: 20px;
-  color: rgb(241, 222, 222);
-  border-radius: 1em;
-  padding: 10px;
-}
-
-.radio_button{
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 #input_search_landing {
@@ -119,22 +98,99 @@ h2{
   height:60px;
   margin-bottom: 10px;
 }
-
-#input_search_nav {
+.input_search_nav {
+  text-align: center;
+  border-radius: 0.5em;
+  border-style: groove;
+  border-width: 0.15em;
+  border-color: white;
+  margin-top: 0.5em;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff3a;
+  background-clip: border-box;
   width: 75%;
   height: 40px;
   vertical-align: 10px;
 }
 
-.search_button {
-  border-radius: 15px;
+.radio_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28em;
+  margin-top: 0.5em;
+  margin-bottom: 3em;
+  background-color: #8acaff28;
   font-size: 20px;
-  color: rgba(241, 222, 222);
-  background-color: rgb(93, 87, 107);
-  border-color: rgb(213, 185, 66);
-  font-family: "Lato", sans-serif;
-  vertical-align: 10px;
+  color: white;
+  border: groove 0.1em aqua;
+  border-bottom: none;
+  border-radius: 1em;
+  padding: 10px;
+  /*45deg, #038eff55,#dceaff46*/
 }
+
+.radio_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create the dot in the radio button */
+.radio_checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio_container:hover input ~ .radio_checkmark {
+  background-color: #ccc;
+}
+
+.radio_container input:checked ~ .radio_checkmark {
+  background-color: #2196F3;
+}
+
+.radio_checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio_container input:checked ~ .radio_checkmark:after {
+  display: flex;
+}
+
+.radio_container .radio_checkmark:after {
+  top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.radio_name {
+  padding-right: 1em;
+}
+
+
 
 .landing_link{
   width: 100%;
@@ -142,7 +198,19 @@ h2{
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none; /* Unterstrich unter dem Text vom Link entfernen*/
 }
+
+.search_button {
+  border-radius: 1em;
+  border-width: 0.1em;
+  border-color: aqua;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff60;
+  vertical-align: 10px;
+}
+
 
 #search_button_landing {
   margin-top: 20px;
@@ -155,6 +223,7 @@ h2{
   width: 15%;
   height: 40px;
   border-width: 2px;
+  border-color: white;
 }
 
 ::placeholder {
@@ -162,7 +231,7 @@ h2{
   vertical-align: 12.5px;
   padding: 0;
   font-family: "Lato", sans-serif;
-  color: rgb(241, 222, 222)
+  color: white;
 }
 .titel_search_wrapper {
   display: flex;
@@ -186,7 +255,8 @@ h2{
   width: 90%;
   height: 90%;
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
-  background-color: rgba(49, 135, 196, 0.9);
+  /*background-color: rgba(6, 54, 88, 0.9);*/
+  background-image: linear-gradient(90deg, #003561 35%, #5e9eff);
 }
 .nav-column-logo {
   display: flex;

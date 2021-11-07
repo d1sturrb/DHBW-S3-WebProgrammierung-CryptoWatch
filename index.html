@@ -22,30 +22,31 @@
         <h1 class="company_name_text" id="page_title">Coin Watcher</h1>
         
         <div class="search_bar">
-          <input
-            class="input_search"
-            id="input_search_landing"
-            type="text"
-            name="search_real_estates"
-            placeholder="Where do you want to live?"/>
-          <div class="radio_wrapper">
-          <input 
-          class="radio_button"
-          type="radio"
-          id="EUR"
-          name="currency"
-          value="EUR"
-          /><label id="EUR">Show Charts in Euro</label>
-          <input 
-          class="radio_button"
-          type="radio"
-          id="USD"
-          name="currency"
-          value="USD"
-          /><label id="USD">Show Charts in US Dollar</label>
+          <input class="input_search" id="input_search_landing"
+            type="text" name="search_real_estates"
+            placeholder="Which coin?"
+          />
+
+            <div class="radio_wrapper">
+          <label class="radio_container" id="EUR">
+            <span class="radio_name">Show Charts in Euro</span>
+            <input class="radio_button" type="radio" 
+              id="EUR" name="radio_currency" value="EUR" checked="checked"/>
+              <span class="radio_checkmark"></span>
+          </label>
+
+          <label class="radio_container" id="USD">
+            <span class="radio_name">Show Charts in US Dollar</span>
+            <input class="radio_button" type="radio" 
+              id="USD" name="radio_currency" value="USD"/>
+              <span class="radio_checkmark"></span>
+          </label>
         </div>
-            <a class=landing_link href="./finder.html"><button class="search_button" id="search_button_landing" type="submit">Search</button></a></div>
-      </div>
+
+        <button class="search_button" id="search_button_landing" 
+          type="submit" onclick="location.href='./finder.html'">
+          Search
+        </button>
     </div>
   </body>
 </html>
