@@ -236,13 +236,13 @@ h2{
 }
 .finder_item{
   display: flex;
-  width: 90%;
+  width: auto;
   height: 40vh;
   background-color: rgba(93, 87, 107, 0.6);
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
 }
 .img_teaser{
-  width: 50%;
+  width: 45vw;
   height: 100%;
   background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
   background-repeat: no-repeat;
@@ -252,7 +252,7 @@ h2{
   position: relative;
 }
 .teaser_text_wrapper{
-  width: 50%;
+  width: 45vw;
   display: flex;
   justify-content: center;
   align-items: center;
