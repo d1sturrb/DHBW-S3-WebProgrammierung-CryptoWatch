@@ -93,6 +93,24 @@ h2{
   border-radius: 1em;
 }
 
+.radio_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(93, 87, 107);
+  font-size: 20px;
+  color: rgb(241, 222, 222);
+  border-radius: 1em;
+  padding: 10px;
+}
+
+.radio_button{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 #input_search_landing {
   width: 90%;
