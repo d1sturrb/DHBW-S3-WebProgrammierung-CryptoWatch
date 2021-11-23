@@ -54,26 +54,42 @@ fetch("https://coingecko.p.rapidapi.com/simple/price?ids=BTC&vs_currencies=EUR",
 });
 */
 
+/*
 async function test_api() {
   console.log("Klick start")
-  const response = await fetch("https://coingecko.p.rapidapi.com/simple/price?ids=BTC&vs_currencies=EUR", {
+  const response = await fetch("https://coingecko.p.rapidapi.com/coins/list", {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": "coingecko.p.rapidapi.com",
       "x-rapidapi-key": "fdc94e748amsh81a55b72b4da354p16f16bjsnf20364f17e8e"
     }
   })
-  console.log(response)
+  console.log(await response.json())
   console.log("Klick end")
 } 
 
 const btn_test = document.getElementById("test")
 btn_test.addEventListener("click", test_api)
+*/
 
+async function load_all_coins() {
+  const response = await fetch("https://coingecko.p.rapidapi.com/coins/list", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "coingecko.p.rapidapi.com",
+      "x-rapidapi-key": "fdc94e748amsh81a55b72b4da354p16f16bjsnf20364f17e8e"
+    }
+  })
+  if (!response.ok) return null
+  // const json = await response.json()
+  const json = response.json().then(json => json)
+  return json
+}
+const all_coins = load_all_coins()
+console.log(all_coins)
+console.log(all_coins[10])
 
-
-
-
+/*
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -102,3 +118,4 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+*/
