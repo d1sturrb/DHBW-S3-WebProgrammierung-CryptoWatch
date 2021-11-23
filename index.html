@@ -3,7 +3,6 @@
   <head>
     <title>Luxury Real Estate</title>
     <link rel="stylesheet" href="styles.css" />
-    <script type="text/javascript" src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
@@ -13,6 +12,7 @@
   </head>
 
   <body class="landing-body">
+    <button id="test">klick</button>
     <img class="bg_img"
       src="background_crypto.png"/>
     <!--<img class="bg_img"
@@ -25,8 +25,7 @@
           <input class="input_search" id="input_search_landing"
             type="text" name="cryptocurrency_name"
             placeholder="Which coin are you looking for?"
-            autocomplete="off" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico"
-          />
+            autocomplete="off" selectBoxOptions="Canada;Denmark;Finland;Germany;Mexico"/>
 
         <div class="radio_wrapper">
           <label class="radio_container">
@@ -45,9 +44,10 @@
         </div>
       </form>
 
-        <button class="search_button" id="search_button_landing" 
-          type="submit" onclick="searchFromLandingPage()">
-          Search
-        </button>
+      <button class="search_button" id="search_button_landing" 
+        type="submit" onclick="searchFromLandingPage()">
+        Search
+      </button>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

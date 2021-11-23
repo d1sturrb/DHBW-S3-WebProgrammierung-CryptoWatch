@@ -35,6 +35,8 @@ function searchFromListingPage() {
 
 }
 
+/*
+
 alert("Sup! Boi")
 
 fetch("https://coingecko.p.rapidapi.com/simple/price?ids=BTC&vs_currencies=EUR", {
@@ -50,9 +52,23 @@ fetch("https://coingecko.p.rapidapi.com/simple/price?ids=BTC&vs_currencies=EUR",
 .catch(err => {
 	console.error(err);
 });
+*/
 
+async function test_api() {
+  console.log("Klick start")
+  const response = await fetch("https://coingecko.p.rapidapi.com/simple/price?ids=BTC&vs_currencies=EUR", {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "coingecko.p.rapidapi.com",
+      "x-rapidapi-key": "fdc94e748amsh81a55b72b4da354p16f16bjsnf20364f17e8e"
+    }
+  })
+  console.log(response)
+  console.log("Klick end")
+} 
 
-
+const btn_test = document.getElementById("test")
+btn_test.addEventListener("click", test_api)
 
 
 
