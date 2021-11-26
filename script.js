@@ -71,24 +71,19 @@ async function test_api() {
 const btn_test = document.getElementById("test")
 btn_test.addEventListener("click", test_api)
 */
-
-async function load_all_coins() {
-  const response = await fetch("https://coingecko.p.rapidapi.com/coins/list", {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "coingecko.p.rapidapi.com",
-      "x-rapidapi-key": "fdc94e748amsh81a55b72b4da354p16f16bjsnf20364f17e8e"
-    }
+var coins = null 
+async function load_all_coins(offset) {
+  const response = await fetch("https://api.coincap.io/v2/assets?limit=2000", {
+    "method": "GET"
   })
   if (!response.ok) return null
-  // const json = await response.json()
-  const json = response.json().then(json => json)
-  return json
+  const json = await response.json()
+  console.log(json)
+  coins = json.data
 }
-const all_coins = load_all_coins()
-console.log(all_coins)
-console.log(all_coins[10])
-
+load_all_coins(101)
+//load_all_coins(101)
+//load_all_coins(201)
 /*
 var slideIndex = 1;
 showSlides(slideIndex);
