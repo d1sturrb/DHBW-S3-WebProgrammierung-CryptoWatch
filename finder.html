@@ -15,7 +15,7 @@
     <div class="top-nav">
         <div class="nav-container">
           <div class="nav-column-logo">
-            <button class="company_name_text" id="nav_company_name_text" onclick="location.href='./index.html'"">Coin Watcher</button>
+            <button class="company_name_text" id="nav_company_name_text" onclick="">Coin Watcher</button>
           </div>
           <div class="nav-column-search">
             <div class="search_bar_top">
@@ -40,13 +40,51 @@
       </div>
     <div class="finder_container">
         <div class="finder_item">
-            <div class="img_teaser">
-              <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
+            <div class="short_desc_coin_wrapper">
+              <div class="coin_column_small">
+                <img class="coin_icon" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2F1175251_bitcoin_btc_cryptocurrency_icon.svg?v=1638100220235">
+              </div>
+              <div class="coin_column_wide">
+                <div class="coin_info_wrapper">
+                  <div class="info_column">
+                    <p class="coin_name">Bitcoin</p>
+                  </div>
+                  <div class="info_column">
+                    <p class="coin_value">49.000€</p>
+                  </div>
+                </div>
+                <div class="coin_info_wrapper">
+                  <div class="info_column">
+                    <p class="coin_name">24 Hours</p>
+                  </div>
+                  <div class="info_column">
+                    <p class="coin_value">- 15%</p>
+                  </div>
+                </div>
+                <div class="coin_info_wrapper">
+                  <div class="info_column">
+                    <p class="coin_name">7 Days</p>
+                  </div>
+                  <div class="info_column">
+                    <p class="coin_value">- 5%</p>
+                  </div>
+                </div>
+                <div class="coin_info_wrapper">
+                  <div class="info_column">
+                    <p class="coin_name">One Month</p>
+                  </div>
+                  <div class="info_column">
+                    <p class="coin_value">+ 20%</p>
+                  </div>
+                </div>
+              </div>
+              <div class="coin_column_small">
+                <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
+              </div>
             </div>
-            <div class="teaser_text_wrapper" id="BTC" style="display: none;">
-              <div class="teaser_text">
-                <h2>Mansion de Crypto</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et posuere nulla. Donec tristique dui ac mauris dapibus, eu consectetur nisi tincidunt. Nulla facilisi. Morbi blandit tristique dui ut interdum. Suspendisse iaculis, leo sit amet pulvinar pulvinar, sem massa venenatis magna, id luctus enim nunc ut ex. Cras quis elit in nunc posuere fermentum. Mauris ut sapien lorem. Quisque sit amet risus blandit enim bibendum congue vitae et lectus. Fusce pulvinar, eros sed consectetur rhoncus, ligula tellus finibus ipsum, tristique vulputate ex ipsum ac lacus. Sed pretium lacinia purus vel feugiat. Pellentesque posuere, ipsum ut posuere varius, est tortor maximus ipsum, eget rhoncus nunc risus ut velit. Suspendisse vitae sem ex.</p>
+            <div class="graph_coin_wrapper" id="BTC" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
+              <div class="graph_wrapper">
+                <p>Hier kommt ein Graph hin!</p>
               </div>
             </div>
         </div>

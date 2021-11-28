@@ -302,6 +302,7 @@ h2{
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: static;
@@ -312,34 +313,68 @@ h2{
   height: 40vh;
   background-color: rgba(93, 87, 107, 0.6);
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  margin: 1em;
 }
-.img_teaser{
-  width: 45vw;
+.short_desc_coin_wrapper{
+  width: 40vw;
   height: 100%;
-  background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
+  /*background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover;*/
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
   position: relative;
+  display: flex;
 }
-.teaser_text_wrapper{
+.coin_column_wide{
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.coin_column_small{
+  min-width: 9em;
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+}
+.coin_info_wrapper{
+  width: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info_column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.coin_icon{
+  width: 3em;
+  height: 3em;
+}
+.graph_coin_wrapper{
   width: 45vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(241, 222, 222);
 }
-.teaser_text{
+.graph_wrapper{
   display: column;
   justify-content: center;
   align-items: center;
-  width: 75%;
+  width: 80%;
+  height: 80%;
+  background-color: white;
 }
 .open_graph{
   background-color: rgba(93, 87, 107, 0);
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 1em;
   position: absolute;
   right: 0;
   top:50%;
