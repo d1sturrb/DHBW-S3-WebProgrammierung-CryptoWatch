@@ -23,18 +23,18 @@ function searchFromLandingPage() {
   alert("Getting " + searched_currency + "/" + fiat_currency)
 
 }
-
+/*
 function searchFromListingPage() {
-  /*location.href="./finder.html"*/
+  //location.href="./finder.html"
   let used_form = document.getElementById("search_listing");
   searched_currency = used_form.elements[0].value;
   
-  /*fiat_currency = document.querySelector("input[name='fiat_currency']:checked").value;*/
+  //fiat_currency = document.querySelector("input[name='fiat_currency']:checked").value;
 
-  alert("Getting " + searched_currency ) /* + "/" + fiat_currency)*/
+  alert("Getting " + searched_currency ) // + "/" + fiat_currency)
 
 }
-
+*/
 /*
 
 alert("Sup! Boi")
@@ -71,36 +71,143 @@ async function test_api() {
 const btn_test = document.getElementById("test")
 btn_test.addEventListener("click", test_api)
 */
-var coins = null 
+
 async function load_all_coins(per_request_limit = 2000) {
   /*
   Mögliche Probleme in der Funkton:
   - Falls wir einen Fehler bekommen, gilt die Abfrage als fertig (da len = 0)
   - Damit wäre ein unvollständiges Laden der Liste möglich (Fehler durch zu viele Anfragen, in dem Fall sollte kurz gewartet werden und dann nochmal gefragt)
   */
-  var complete_currency_list = []
-  var json
-  var new_json = null
-  var offset = 0
-  do {
-    var query = "https://api.coincap.io/v2/assets?limit=" + per_request_limit + "&offset=" + offset
-    console.log(query)
-    const response = await fetch(query, {
-      "method": "GET"
-    })
-    offset += per_request_limit
-    json = await response
-    console.log(json)
-    json = await json.json()
-    complete_currency_list.push(...json.data)
-    console.log(json.data.length)
-  } while (json.data.length >= per_request_limit)
+  let complete_currency_list = []
+  let json
+  let offset = 0
+  // Es ist ein größerer Try-Catch-Block von Nöten, damit bei einem Fehler die "komplette" suche Kaputt ist.
+  // Möglicherweise sollte der Schaden "reduziert" weitergegeben werden, da die Meisten Daten bereits mit der ersten Anfrage erhalten wurden (falls zumdindest diese durch geht...)
+  try{
+    do {
+      const response = await fetch(`https://api.coincap.io/v2/assets?limit=${per_request_limit}&offset=${offset}`)
+
+      offset += per_request_limit
+
+      json = await response.json()
+      complete_currency_list.push(...json.data)
+    } while (json.data.length >= per_request_limit)
+  } catch (err) {
+    alert("Konnte die Währungsdaten leider nicht laden.\nBitte in einer Minute erneut versuchen.\nSollte der Fehler länger bestehen, scheint ein schwerwiegender Fehler vorzuliegen D:")
+  }
+  // Die Variable Coins soll Global erreichbar sein
   coins = complete_currency_list
-  console.log(complete_currency_list)
+  return coins
 }
+
+
+function search_currencies() {
+  let search_string = search_box.value.toLowerCase()
+
+  const currencies = coins.filter(currency => {
+    const name = currency.name.toLowerCase()
+    const symbol = currency.symbol.toLowerCase()
+    return name.startsWith(search_string) || symbol.startsWith(search_string)
+  })
+
+  update_data_list(currencies)
+}
+
+
+function remove_all_children(element) {
+  element.childNodes.forEach(childNode => {
+    childNode.remove()
+  })
+}
+
+
+function update_data_list(currencies) {
+  remove_all_children(search_listing_recommendations)
+  let options = []
+  currencies.forEach(currency => {
+    options.push(`<option label="${currency.symbol}" value="${currency.name}"/>`)
+  })
+  search_listing_recommendations.innerHTML = options.slice(0, 12).join("")
+}
+
+function add_currency_to_watch() {
+  const currency_id = search_box.value
+  const currency = coins.filter(currency => {
+    return currency.name === currency_id
+  })[0]
+  console.log(currency)
+  if (currency === undefined) {
+    return
+  }
+  search_box.value = ""
+  watched_currencies.push(currency)
+  update_data_list(coins)
+  finder_container.innerHTML += `
+  <div class="finder_item">
+    <div class="short_desc_coin_wrapper">
+      <div class="coin_column_small">
+        <img class="coin_icon" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2F1175251_bitcoin_btc_cryptocurrency_icon.svg?v=1638100220235">
+      </div>
+      <div class="coin_column_wide">
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">${currency.name}</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">${Intl.NumberFormat("de-DE", {style: "currency", currency: "USD"}).format(currency.priceUsd)}</p>
+          </div>
+        </div>
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">24 Hours</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">- 15%</p>
+          </div>
+        </div>
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">7 Days</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">- 5%</p>
+          </div>
+        </div>
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">One Month</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">+ 20%</p>
+          </div>
+        </div>
+      </div>
+      <div class="coin_column_small">
+        <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
+      </div>
+    </div>
+    <div class="graph_coin_wrapper" id="BTC" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
+      <div class="graph_wrapper">
+        <p>Hier kommt ein Graph hin!</p>
+      </div>
+    </div>
+  </div>
+  `
+}
+
+
+var coins = null
+const watched_currencies = []
+const search_box = document.getElementById("search_listing_input")
+const search_listing_recommendations = document.getElementById("search_listing_recommendations")
+const finder_container = document.getElementById("finder_container")
+
+search_box.addEventListener("input", search_currencies)
+search_box.addEventListener("change", add_currency_to_watch)
+
 load_all_coins()
-//load_all_coins(101)
-//load_all_coins(201)
+  .then(coins => update_data_list(coins))
+console.log(coins)
 /*
 var slideIndex = 1;
 showSlides(slideIndex);
