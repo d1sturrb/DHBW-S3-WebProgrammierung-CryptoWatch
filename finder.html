@@ -2,8 +2,7 @@
 <html lang="de">
 <head>
     <title>Luxury Real Estate</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
@@ -11,83 +10,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
-<body id="finder_body">
-    <div class="top-nav">
-        <div class="nav-container">
-          <div class="nav-column-logo">
-            <button class="company_name_text" id="nav_company_name_text" onclick="">Coin Watcher</button>
-          </div>
-          <div class="nav-column-search">
-            <div class="search_bar_top">
-              <form class="form-nav" id="search_listing" onsubmit=searchFromListingPage()>
-              <input
-                class="input_search_nav"
-                type="text"
-                name="search_real_estates"
-                placeholder="Which coin?"
+  <body id="finder_body">
+      <div class="top-nav">
+          <div class="nav-container">
+            <div class="nav-column-logo">
+              <button class="company_name_text" id="nav_company_name_text" onclick="">Coin Watcher</button>
+            </div>
+            <div class="nav-column-search">
+              <div class="search_bar_top">
+                <form class="form-nav" id="search_listing">
+                  <input
+                    id="search_listing_input"
+                    class="input_search_nav"
+                    type="text"
+                    name="search_real_estates"
+                    placeholder="Which coin?"
+                    list="search_listing_recommendations"
+                  />
+                  <datalist id="search_listing_recommendations"/>
+                  <!--button class="search_button" id="search_button_nav" >Search</button-->
+                </form>
+              </div>
+            </div>
+            <div class="nav-column-acc">
+              <img
+                class="nav-acc-img"
+                src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"
               />
-              <!--button class="search_button" id="search_button_nav" >Search</button-->
-            </form>
             </div>
           </div>
-          <div class="nav-column-acc">
-            <img
-              class="nav-acc-img"
-              src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"
-            />
-          </div>
         </div>
+      <div id="finder_container" class="finder_container">
+          
       </div>
-    <div class="finder_container">
-        <div class="finder_item">
-            <div class="short_desc_coin_wrapper">
-              <div class="coin_column_small">
-                <img class="coin_icon" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2F1175251_bitcoin_btc_cryptocurrency_icon.svg?v=1638100220235">
-              </div>
-              <div class="coin_column_wide">
-                <div class="coin_info_wrapper">
-                  <div class="info_column">
-                    <p class="coin_name">Bitcoin</p>
-                  </div>
-                  <div class="info_column">
-                    <p class="coin_value">49.000€</p>
-                  </div>
-                </div>
-                <div class="coin_info_wrapper">
-                  <div class="info_column">
-                    <p class="coin_name">24 Hours</p>
-                  </div>
-                  <div class="info_column">
-                    <p class="coin_value">- 15%</p>
-                  </div>
-                </div>
-                <div class="coin_info_wrapper">
-                  <div class="info_column">
-                    <p class="coin_name">7 Days</p>
-                  </div>
-                  <div class="info_column">
-                    <p class="coin_value">- 5%</p>
-                  </div>
-                </div>
-                <div class="coin_info_wrapper">
-                  <div class="info_column">
-                    <p class="coin_name">One Month</p>
-                  </div>
-                  <div class="info_column">
-                    <p class="coin_value">+ 20%</p>
-                  </div>
-                </div>
-              </div>
-              <div class="coin_column_small">
-                <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
-              </div>
-            </div>
-            <div class="graph_coin_wrapper" id="BTC" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
-              <div class="graph_wrapper">
-                <p>Hier kommt ein Graph hin!</p>
-              </div>
-            </div>
-        </div>
-    </div>
-</body>
+      <script src="script.js"></script>
+  </body>
 </html>
