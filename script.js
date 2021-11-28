@@ -72,16 +72,33 @@ const btn_test = document.getElementById("test")
 btn_test.addEventListener("click", test_api)
 */
 var coins = null 
-async function load_all_coins(offset) {
-  const response = await fetch("https://api.coincap.io/v2/assets?limit=2000", {
-    "method": "GET"
-  })
-  if (!response.ok) return null
-  const json = await response.json()
-  console.log(json)
-  coins = json.data
+async function load_all_coins(per_request_limit = 2000) {
+  /*
+  Mögliche Probleme in der Funkton:
+  - Falls wir einen Fehler bekommen, gilt die Abfrage als fertig (da len = 0)
+  - Damit wäre ein unvollständiges Laden der Liste möglich (Fehler durch zu viele Anfragen, in dem Fall sollte kurz gewartet werden und dann nochmal gefragt)
+  */
+  var complete_currency_list = []
+  var json
+  var new_json = null
+  var offset = 0
+  do {
+    var query = "https://api.coincap.io/v2/assets?limit=" + per_request_limit + "&offset=" + offset
+    console.log(query)
+    const response = await fetch(query, {
+      "method": "GET"
+    })
+    offset += per_request_limit
+    json = await response
+    console.log(json)
+    json = await json.json()
+    complete_currency_list.push(...json.data)
+    console.log(json.data.length)
+  } while (json.data.length >= per_request_limit)
+  coins = complete_currency_list
+  console.log(complete_currency_list)
 }
-load_all_coins(101)
+load_all_coins()
 //load_all_coins(101)
 //load_all_coins(201)
 /*
