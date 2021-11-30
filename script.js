@@ -185,10 +185,10 @@ async function add_currency_to_watch() {
         </div>
       </div>
       <div class="coin_column_small">
-        <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
+        <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('${currency.name}')"/>
       </div>
     </div>
-    <div class="graph_coin_wrapper" id="BTC" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
+    <div class="graph_coin_wrapper" id="${currency.name}" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
       <div class="graph_wrapper">
         <p>Hier kommt ein Graph hin!</p>
       </div>
