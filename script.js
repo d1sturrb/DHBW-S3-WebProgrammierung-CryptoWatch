@@ -85,7 +85,7 @@ async function load_all_coins(per_request_limit = 2000) {
   // Möglicherweise sollte der Schaden "reduziert" weitergegeben werden, da die Meisten Daten bereits mit der ersten Anfrage erhalten wurden (falls zumdindest diese durch geht...)
   try{
     do {
-      const response = await fetch(`https://api.coincap.io/v2/assets?limit=${per_request_limit}&offset=${offset}`)
+      const response = await fetch(`${api_address}assets?limit=${per_request_limit}&offset=${offset}`)
 
       offset += per_request_limit
 
@@ -130,7 +130,7 @@ function update_data_list(currencies) {
   search_listing_recommendations.innerHTML = options.slice(0, 12).join("")
 }
 
-function add_currency_to_watch() {
+async function add_currency_to_watch() {
   const currency_id = search_box.value
   const currency = coins.filter(currency => {
     return currency.name === currency_id
@@ -140,6 +140,8 @@ function add_currency_to_watch() {
     return
   }
   search_box.value = ""
+  curr = await fetch(`${api_address}assets/${currency.id}/history?interval=d1`)
+  console.log(await curr.json())
   watched_currencies.push(currency)
   update_data_list(coins)
   finder_container.innerHTML += `
@@ -197,6 +199,7 @@ function add_currency_to_watch() {
 
 
 var coins = null
+const api_address = "https://api.coincap.io/v2/"
 const watched_currencies = []
 const search_box = document.getElementById("search_listing_input")
 const search_listing_recommendations = document.getElementById("search_listing_recommendations")
