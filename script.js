@@ -73,30 +73,9 @@ btn_test.addEventListener("click", test_api)
 */
 
 async function load_all_coins(per_request_limit = 2000) {
-  /*
-  Mögliche Probleme in der Funkton:
-  - Falls wir einen Fehler bekommen, gilt die Abfrage als fertig (da len = 0)
-  - Damit wäre ein unvollständiges Laden der Liste möglich (Fehler durch zu viele Anfragen, in dem Fall sollte kurz gewartet werden und dann nochmal gefragt)
-  */
-  let complete_currency_list = []
-  let json
-  let offset = 0
-  // Es ist ein größerer Try-Catch-Block von Nöten, damit bei einem Fehler die "komplette" suche Kaputt ist.
-  // Möglicherweise sollte der Schaden "reduziert" weitergegeben werden, da die Meisten Daten bereits mit der ersten Anfrage erhalten wurden (falls zumdindest diese durch geht...)
-  try{
-    do {
-      const response = await fetch(`${api_address}assets?limit=${per_request_limit}&offset=${offset}`)
-
-      offset += per_request_limit
-
-      json = await response.json()
-      complete_currency_list.push(...json.data)
-    } while (json.data.length >= per_request_limit)
-  } catch (err) {
-    alert("Konnte die Währungsdaten leider nicht laden.\nBitte in einer Minute erneut versuchen.\nSollte der Fehler länger bestehen, scheint ein schwerwiegender Fehler vorzuliegen D:")
-  }
-  // Die Variable Coins soll Global erreichbar sein
-  coins = complete_currency_list
+  const response = await fetch("https://api.coinpaprika.com/v1/coins")
+  const json = await response.json()
+  coins = json
   return coins
 }
 
@@ -140,7 +119,7 @@ async function add_currency_to_watch() {
     return
   }
   search_box.value = ""
-  curr = await fetch(`${api_address}assets/${currency.id}/history?interval=d1`)
+  curr = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}`)
   console.log(await curr.json())
   watched_currencies.push(currency)
   update_data_list(coins)
@@ -185,10 +164,10 @@ async function add_currency_to_watch() {
         </div>
       </div>
       <div class="coin_column_small">
-        <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('${currency.name}')"/>
+        <input class="open_graph" type="button" name="open" value="Open Graph" onclick="showDiv('BTC')"/>
       </div>
     </div>
-    <div class="graph_coin_wrapper" id="${currency.name}" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
+    <div class="graph_coin_wrapper" id="BTC" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
       <div class="graph_wrapper">
         <p>Hier kommt ein Graph hin!</p>
       </div>
