@@ -121,9 +121,11 @@ async function add_currency_to_watch() {
   search_box.value = ""
   curr = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}`)
   console.log(await curr.json())
-  hist = await (await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}/ohlcv/historical?start=2020-11-29&end=2021-11-30`)).json()
-  console.log(hist)
-  console.log(hist.length, hist[hist.length - 2].time_close, hist[hist.length -1].time_close)
+  historical = await (await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}/ohlcv/historical?start=2020-11-29&end=2021-11-30`)).json()
+  console.log(Date.now() - 82800)
+  today = await (await fetch(`https://api.coinpaprika.com/v1/tickers/${currency.id}/historical?start=${Math.floor(Date.now()/1000) - 82800}`)).json()
+  console.log(historical)
+  console.log(today)
   watched_currencies.push(currency)
   update_data_list(coins)
   finder_container.innerHTML += `
@@ -138,7 +140,7 @@ async function add_currency_to_watch() {
             <p class="coin_name">${currency.name}</p>
           </div>
           <div class="info_column">
-            <p class="coin_value">${Intl.NumberFormat("de-DE", {style: "currency", currency: "USD"}).format(hist[hist.length - 1].close)}</p>
+            <p class="coin_value">${Intl.NumberFormat("de-DE", {style: "currency", currency: "USD"}).format(today[today.length - 1].price)}</p>
           </div>
         </div>
         <div class="coin_info_wrapper">
@@ -146,7 +148,7 @@ async function add_currency_to_watch() {
             <p class="coin_name">24 Hours</p>
           </div>
           <div class="info_column">
-            <p class="coin_value">${Intl.NumberFormat("de-DE", {style: "percent"}).format(hist[hist.length - 1].close / hist[hist.length - 2].close - 1)}</p>
+            <p class="coin_value">${Intl.NumberFormat("de-DE", {style: "percent"}).format(today[today.length - 1].price / today[1].price - 1)}</p>
           </div>
         </div>
         <div class="coin_info_wrapper">
