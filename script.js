@@ -121,7 +121,7 @@ async function add_currency_to_watch() {
   search_box.value = ""
   curr = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}`)
   console.log(await curr.json())
-  hist = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}/ohlcv/historical?start=2021-11-29&limit=366`)
+  hist = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}/ohlcv/historical?start=2020-11-29&end=2021-11-30`)
   console.log(await hist.json())
   watched_currencies.push(currency)
   update_data_list(coins)
