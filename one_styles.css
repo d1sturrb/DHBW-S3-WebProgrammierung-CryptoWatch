@@ -1,0 +1,386 @@
+@font-face{ 
+    font-family: Cinzel, serif;
+    src: url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap'); 
+} 
+
+/* ====== The Landingpage Part ====== */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Lato", sans-serif;
+  background-color: rgb(241, 222, 222)
+}
+h2{
+  font-size: 30px;
+}
+/*
+.finder-body {
+  height: 100vh;
+  width: 100vw;
+}
+*/
+
+.bg_img {
+  position: absolute;
+  max-width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  z-index: -1;
+}
+.center_search {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company_name_text {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  font-family: "Cinzel Decorative", cursive;
+  font-style: italic;
+  font-weight: bold;
+  vertical-align: 10px;
+  /*background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);*/
+  background-image: linear-gradient(45deg, #038eff,#dceaff, #038eff, #dceaff);
+  background-clip: text;
+  color: transparent;
+  background-size: 400%;
+  animation: fade_left_to_right 4s infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fade_left_to_right {
+  0% { background-position: left; }
+  100% { background-position: right; }
+}
+
+#nav_company_name_text {
+  width: 400px;
+  height: 100px;
+  font-size: 30px;
+  border: none;
+}
+
+.search_bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input_search {
+  text-align: center;
+  border-radius: 2em;
+  border-style: groove;
+  border-width: 0.1em;
+  border-color: aqua;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff00;
+  background-clip: border-box;
+}
+
+#input_search_landing {
+  width: 90%;
+  height:60px;
+  margin-bottom: 1em;
+}
+
+.input_search_nav {
+  text-align: center;
+  border-radius: 0.5em;
+  border-style: groove;
+  border-width: 0.15em;
+  border-color: white;
+  margin-top: 0em;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff3a;
+  background-clip: border-box;
+  width: 75%;
+  height: 40px;
+  vertical-align: 10px;
+}
+
+.radio_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28em;
+  background-color: #8acaff28;
+  font-size: 20px;
+  color: white;
+  border: groove 0.1em aqua;
+  border-bottom: none;
+  border-radius: 1em;
+  padding: 10px;
+  /*45deg, #038eff55,#dceaff46*/
+}
+
+.radio_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create the dot in the radio button */
+.radio_checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio_container:hover input ~ .radio_checkmark {
+  background-color: #ccc;
+}
+
+.radio_container input:checked ~ .radio_checkmark {
+  background-color: #2196F3;
+}
+
+.radio_checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio_container input:checked ~ .radio_checkmark:after {
+  display: flex;
+}
+
+.radio_container .radio_checkmark:after {
+  top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.radio_name {
+  padding-right: 1em;
+}
+
+
+
+.landing_link{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none; /* Unterstrich unter dem Text vom Link entfernen*/
+}
+
+.search_button {
+  border-radius: 1em;
+  border-width: 0.1em;
+  border-color: aqua;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff60;
+  vertical-align: 10px;
+}
+
+
+#search_button_landing {
+  margin-top: 20px;
+  width: 50%;
+  height: 2em;
+}
+
+#search_button_nav {
+  margin-left: 40px;
+  width: 15%;
+  height: 40px;
+  border-width: 2px;
+  border-color: white;
+}
+
+::placeholder {
+  font-size: 20px;
+  vertical-align: 12.5px;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+  color: white;
+}
+.titel_search_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ====== The Listing Part ====== */
+.top-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-container {
+  display: flex;
+  /*flex-direction: column;*/
+  width: 90%;
+  height: 90%;
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  /*background-color: rgba(6, 54, 88, 0.9);*/
+  background-image: linear-gradient(90deg, #003561 35%, #5e9eff);
+}
+.nav-column-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.nav-column-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.nav-column-acc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-acc-img {
+  width: 50px;
+  height: 50px;
+}
+.search_bar_top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-nav{
+  width: 100%;
+  height: 100%;
+}
+
+/* ====== The Finder Part ====== */
+.finder_container{
+  margin-top: 5vh;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: static;
+}
+.finder_item{
+  display: flex;
+  width: auto;
+  height: 40vh;
+  background-color: rgba(93, 87, 107, 0.6);
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  margin: 1em;
+}
+.short_desc_coin_wrapper{
+  width: 40vw;
+  height: 100%;
+  /*background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;*/
+  border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
+  position: relative;
+  display: flex;
+}
+.coin_column_wide{
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.coin_column_small{
+  min-width: 9em;
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+}
+.coin_info_wrapper{
+  width: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.info_column{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+.coin_icon{
+  width: 3em;
+  height: 3em;
+}
+.graph_coin_wrapper{
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.graph_wrapper{
+  display: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  background-color: white;
+}
+.open_graph{
+  background-color: rgba(93, 87, 107, 0);
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  position: absolute;
+  right: 0;
+  top:50%;
+  transform: rotate(-90deg);
+  font-family: "Lato", sans-serif;
+  border-radius: 1em;
+}
+/* =================================================================
+To Do List:
+.input_search[{}
+    Change the text color of the input and the size
+==================================================================*/
