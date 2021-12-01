@@ -23,19 +23,12 @@ h2{
 }
 */
 
-.bg_img {
+.background_img {
   position: absolute;
   max-width: 100%;
   min-height: 100vh;
   max-height: 100vh;
   z-index: -1;
-}
-.center_search {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .company_name_text {
@@ -228,11 +221,7 @@ h2{
   font-family: "Lato", sans-serif;
   color: white;
 }
-.titel_search_wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 /* ====== The Listing Part ====== */
 .top-nav {
   position: -webkit-sticky;
