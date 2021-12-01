@@ -23,18 +23,11 @@ function searchFromLandingPage() {
   alert("Getting " + searched_currency + "/" + fiat_currency)
 
 }
-/*
-function searchFromListingPage() {
-  //location.href="./finder.html"
-  let used_form = document.getElementById("search_listing");
-  searched_currency = used_form.elements[0].value;
-  
-  //fiat_currency = document.querySelector("input[name='fiat_currency']:checked").value;
 
-  alert("Getting " + searched_currency ) // + "/" + fiat_currency)
-
+function CoinWatcher() {
+  location.href="./onepager.html"
 }
-*/
+
 /*
 
 alert("Sup! Boi")
