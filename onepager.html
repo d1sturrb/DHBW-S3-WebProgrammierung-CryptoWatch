@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-<title>Coin Watcher</title>
-<link rel="stylesheet" href="one_styles.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-</head>
+
+    <head>
+        <title>Coin Watcher</title>
+        <link rel="stylesheet" href="one_styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </head>
 
 
-<body id="finder_body">
+    <body id="finder_body">
 
-<!--<img class="background_img" src="background_crypto.png"/>-->
-<img class="background_img" src="https://c.tenor.com/fJh-W38iA3oAAAAC/dance-kid.gif"/>
+        <!--<img class="background_img" src="background_crypto.png"/>-->
+        <img class="background_img" src="https://c.tenor.com/fJh-W38iA3oAAAAC/dance-kid.gif"/>
 
-    <div class="top-nav">
-        <div class="nav-container">
-            <div class="nav-column-logo">
-            <button class="company_name_text" id="nav_company_name_text" onclick=CoinWatcher()>Coin Watcher</button>
-            </div>
-
-            <div class="nav-column-search">
-                <div class="search_bar_top">
-                    <form class="form-nav" id="search_listing">
-                        <input
-                            id="search_listing_input"
-                            class="input_search_nav"
-                            type="text"
-                            name="search_real_estates"
-                            placeholder="Select a Cryptocurrency"
-                            list="search_listing_recommendations"
-                        />
-                        <datalist id="search_listing_recommendations"/>
-                        <!--button class="search_button" id="search_button_nav" >Search</button-->
-                    </form>
+        <div class="nav">
+            <div class="nav-container">
+                <div class="nav-column-logo">
+                    <button class="company_name_text" id="nav_company_name_text" onclick=CoinWatcher()>Coin Watcher</button>
                 </div>
+
+                <div class="nav-column-search">
+                    <div class="search_bar_top">
+                        <form class="nav_form" id="search_listing">
+                            <input
+                                id="search_listing_input"
+                                class="nav_input_search_cryptocurrencies"
+                                type="text"
+                                name="search_cryptocurrencies"
+                                placeholder="Select a Cryptocurrency"
+                                list="search_listing_recommendations"
+                            />
+                            <datalist id="search_listing_recommendations"/>
+                            
+                        </form>
+                    </div>
+                </div>
+
+                <div class="nav-column-acc">
+                    <img
+                        class="nav-acc-img"
+                        src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"
+                    />
+                </div>        
             </div>
-
-            <div class="nav-column-acc">
-                <img
-                    class="nav-acc-img"
-                    src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"
-                />
-            </div>        
-
         </div>
 
-    </div>
+        <div class="radio_wrapper">
+            <label class="radio_label">
+                <span class="radio_name">Currency: €</span>
+                <input class="radio_button" type="radio" 
+                    id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
+                <span class="radio_checkmark"></span>
+            </label>
 
-    <form class="search_bar" id="form_search_landing_page" onsubmit=searchFromLandingPage()>
-        
-    <div class="radio_wrapper">
-        <label class="radio_container">
-        <span class="radio_name">Currency: €</span>
-        <input class="radio_button" type="radio" 
-            id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
-            <span class="radio_checkmark"></span>
-        </label>
+            <label class="radio_label">
+                <span class="radio_name">Currency: $</span>
+                <input class="radio_button" type="radio" 
+                    id="radio_USD" name="fiat_currency" value="USD"/>
+                <span class="radio_checkmark"></span>
+            </label>
+        </div>
 
-        <label class="radio_container">
-        <span class="radio_name">Currency: $</span>
-        <input class="radio_button" type="radio" 
-            id="radio_USD" name="fiat_currency" value="USD"/>
-            <span class="radio_checkmark"></span>
-        </label>
-    </div>
-    </form>
+        <div id="finder_container" class="finder_container">
+        </div>
 
-    <div id="finder_container" class="finder_container">
+    </body>
+
     
-</div>
-</body>
+    <script type="text/javascript" src="script.js"></script>
+    <script src="script.js"></script>
 
-
-<script src="script.js"></script>
-<script type="text/javascript" src="script.js"></script>
 </html>
