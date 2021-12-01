@@ -11,26 +11,29 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: "Lato", sans-serif;
-  background-color: rgb(64, 137, 255)
+  background-color: rgb(241, 222, 222)
 }
 h2{
   font-size: 30px;
 }
-/*
-.finder-body {
+.landing-body {
   height: 100vh;
   width: 100vw;
 }
-*/
-
-.background_img {
+.bg_img {
   position: absolute;
   max-width: 100%;
   min-height: 100vh;
   max-height: 100vh;
   z-index: -1;
 }
-
+.center_search {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .company_name_text {
   background-color: rgba(255, 255, 255, 0.8);
@@ -42,7 +45,7 @@ h2{
   font-style: italic;
   font-weight: bold;
   vertical-align: 10px;
-  background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);
+  /*background-image: linear-gradient(45deg, #f3ec78,#af4261, #f3ec78, #af4261);*/
   background-image: linear-gradient(45deg, #038eff,#dceaff, #038eff, #dceaff);
   background-clip: text;
   color: transparent;
@@ -57,7 +60,45 @@ h2{
   100% { background-position: right; }
 }
 
-.nav_input_search_cryptocurrencies {
+#page_title {
+  font-size: 60px;
+  color: rgb(0, 0, 0);
+  padding-top: 3em;
+}
+
+#nav_company_name_text {
+  width: 400px;
+  height: 100px;
+  font-size: 30px;
+  border: none;
+}
+
+.search_bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input_search {
+  text-align: center;
+  border-radius: 2em;
+  border-style: groove;
+  border-width: 0.1em;
+  border-color: aqua;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff00;
+  background-clip: border-box;
+}
+
+#input_search_landing {
+  width: 90%;
+  height:60px;
+  margin-bottom: 1em;
+}
+
+.input_search_nav {
   text-align: center;
   border-radius: 0.5em;
   border-style: groove;
@@ -73,33 +114,39 @@ h2{
   vertical-align: 10px;
 }
 
-/* ====== Radio Buttons ====== */
 .radio_wrapper{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 28em;
+  background-color: #8acaff28;
   font-size: 20px;
   color: white;
+  border: groove 0.1em aqua;
+  border-bottom: none;
+  border-radius: 1em;
+  padding: 10px;
   /*45deg, #038eff55,#dceaff46*/
 }
 
-.radio_label {
+.radio_container {
   display: block;
   position: relative;
   padding-left: 35px;
+  margin-bottom: 12px;
   cursor: pointer;
   font-size: 20px;
   user-select: none;
 }
 
-/* Standard-Radio-Button vom Browser verstecken, wegen dem Neuen */
-.radio_label input {
+/* Hide the browser's default radio button */
+.radio_container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-/* Punkt in der Mitte des Radio-Buttons erstellen */
+/* Create the dot in the radio button */
 .radio_checkmark {
   position: absolute;
   top: 0;
@@ -110,11 +157,11 @@ h2{
   border-radius: 50%;
 }
 
-.radio_label:hover input ~ .radio_checkmark {
+.radio_container:hover input ~ .radio_checkmark {
   background-color: #ccc;
 }
 
-.radio_label input:checked ~ .radio_checkmark {
+.radio_container input:checked ~ .radio_checkmark {
   background-color: #2196F3;
 }
 
@@ -124,11 +171,11 @@ h2{
   display: none;
 }
 
-.radio_label input:checked ~ .radio_checkmark:after {
+.radio_container input:checked ~ .radio_checkmark:after {
   display: flex;
 }
 
-.radio_label .radio_checkmark:after {
+.radio_container .radio_checkmark:after {
   top: 9px;
 	left: 9px;
 	width: 8px;
@@ -141,7 +188,42 @@ h2{
   padding-right: 1em;
 }
 
-/* Alle Placeholder */
+
+
+.landing_link{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none; /* Unterstrich unter dem Text vom Link entfernen*/
+}
+
+.search_button {
+  border-radius: 1em;
+  border-width: 0.1em;
+  border-color: aqua;
+  font-size: 20px;
+  color: white;
+  background-color: #8acaff60;
+  vertical-align: 10px;
+}
+
+
+#search_button_landing {
+  margin-top: 20px;
+  width: 50%;
+  height: 2em;
+}
+
+#search_button_nav {
+  margin-left: 40px;
+  width: 15%;
+  height: 40px;
+  border-width: 2px;
+  border-color: white;
+}
+
 ::placeholder {
   font-size: 20px;
   vertical-align: 12.5px;
@@ -149,9 +231,13 @@ h2{
   font-family: "Lato", sans-serif;
   color: white;
 }
-
-/* ====== Navigation Bar ====== */
-.nav {
+.titel_search_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ====== The Listing Part ====== */
+.top-nav {
   position: -webkit-sticky;
   position: sticky;
   top: 20px;
@@ -161,14 +247,6 @@ h2{
   justify-content: center;
   align-items: center;
 }
-
-#nav_company_name_text {
-  width: 400px;
-  height: 100px;
-  font-size: 30px;
-  border: none;
-}
-
 .nav-container {
   display: flex;
   /*flex-direction: column;*/
@@ -198,22 +276,24 @@ h2{
   padding-right: 40px;
   padding-left: 40px;
 }
+.nav-logo-img {
+  width: 50px;
+  height: 50px;
+}
 
 .nav-acc-img {
   width: 50px;
   height: 50px;
 }
-
-.nav_form{
-  width: 100%;
-  height: 100%;
-}
-
 .search_bar_top {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.form-nav{
+  width: 100%;
+  height: 100%;
 }
 
 /* ====== The Finder Part ====== */
@@ -227,7 +307,6 @@ h2{
   align-items: center;
   position: static;
 }
-
 .finder_item{
   display: flex;
   width: auto;
@@ -305,6 +384,6 @@ h2{
 }
 /* =================================================================
 To Do List:
-.navinput_search_cryptocurrencies[{}
+.input_search[{}
     Change the text color of the input and the size
 ==================================================================*/
