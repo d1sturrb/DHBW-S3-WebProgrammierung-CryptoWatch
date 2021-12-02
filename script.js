@@ -218,3 +218,17 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 */
+
+function darkMode() {
+  var darkBody = document.body;
+  darkBody.classList.toggle("body_dark_mode");
+
+  if (document.getElementById("dark_mode_img").src == "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274") 
+  {
+      document.getElementById("dark_mode_img").src = "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fcontrast-2-line.svg?v=1638406942274";
+  }
+  else 
+  {
+      document.getElementById("dark_mode_img").src = "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274";
+  }
+}

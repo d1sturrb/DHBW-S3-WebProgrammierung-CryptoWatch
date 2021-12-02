@@ -16,7 +16,7 @@
     <body id="finder_body">
 
         <!--<img class="background_img" src="background_crypto.png"/>-->
-        <img class="background_img" src="https://c.tenor.com/fJh-W38iA3oAAAAC/dance-kid.gif"/>
+        <!-- <img class="background_img" src="https://c.tenor.com/fJh-W38iA3oAAAAC/dance-kid.gif"/> -->
 
         <div class="nav">
             <div class="nav-container">
@@ -39,33 +39,34 @@
                             
                         </form>
                     </div>
+                    <div class="radio_wrapper">
+                        <label class="radio_label">
+                            <span class="radio_name">Currency: €</span>
+                            <input class="radio_button" type="radio" 
+                                id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
+                            <span class="radio_checkmark"></span>
+                        </label>
+            
+                        <label class="radio_label">
+                            <span class="radio_name">Currency: $</span>
+                            <input class="radio_button" type="radio" 
+                                id="radio_USD" name="fiat_currency" value="USD"/>
+                            <span class="radio_checkmark"></span>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="nav-column-acc">
+                    <button class="dark_mode_button"  onclick=darkMode()>
                     <img
                         class="nav-acc-img"
-                        src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Faccount-circle-line.svg?v=1634912457925"
+                        id="dark_mode_img"
+                        src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274"
                     />
+                    </button>
                 </div>        
             </div>
         </div>
-
-        <div class="radio_wrapper">
-            <label class="radio_label">
-                <span class="radio_name">Currency: €</span>
-                <input class="radio_button" type="radio" 
-                    id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
-                <span class="radio_checkmark"></span>
-            </label>
-
-            <label class="radio_label">
-                <span class="radio_name">Currency: $</span>
-                <input class="radio_button" type="radio" 
-                    id="radio_USD" name="fiat_currency" value="USD"/>
-                <span class="radio_checkmark"></span>
-            </label>
-        </div>
-
         <div id="finder_container" class="finder_container">
         </div>
 
