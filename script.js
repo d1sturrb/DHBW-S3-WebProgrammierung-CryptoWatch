@@ -167,7 +167,7 @@ async function add_currency_to_watch() {
     </div>
     <div class="graph_coin_wrapper" id="${currency.name}" style="display: none;"> <!-- The needs to be set to the Coin ID and the open_graph Function need to put the data from here to open it. -->
       <div class="graph_wrapper">
-        <p>Hier kommt ein Graph hin!</p>
+        <p>Whitepaper-Link, Kurs plotten (evtl. mit Filtern)</p>
       </div>
     </div>
   </div>
