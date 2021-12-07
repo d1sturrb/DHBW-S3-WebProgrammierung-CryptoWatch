@@ -24,8 +24,8 @@ function searchFromLandingPage() {
 
 }
 
-function CoinWatcher() {
-  location.href="./onepager.html"
+function CryptoWatch() {
+  location.href="./index.html"
 }
 
 /*
