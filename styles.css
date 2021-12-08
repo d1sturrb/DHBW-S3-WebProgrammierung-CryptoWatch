@@ -221,67 +221,32 @@ h2{
 /* ====== Mobile Nav Part ====== */
 @media only screen and (max-width: 1030px) {
   .nav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
-    width: 100%;
     height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   #nav_company_name_text {
     width: 100%;
     height: 2em;
     font-size: 1.5em;
-    border: none;
   }
   .nav-container {
-    display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 90%;
-    border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
-    background-image: linear-gradient(90deg, #003561 35%, #5e9eff);
   }
   .nav-column-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 40px;
-    padding-left: 40px;
     margin-top: 10px;
   }
   .nav-column-search {
-    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
   }
   .nav-column-acc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
   }
-  
   .nav-acc-img {
     width: 30px;
     height: 30px;
   }
-  
-  .nav_form{
-    width: 100%;
-    height: 100%;
-  }
-  
   .search_bar_top {
     width: 90%;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 /* ====== The Finder Part ====== */
@@ -297,8 +262,9 @@ h2{
 }
 .finder_item{
   display: flex;
+  align-items: center;
   width: auto;
-  height: 40vh;
+  height: auto;
   background-color: rgba(204, 221, 226, 0.6);
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
   margin: 1em;
@@ -309,10 +275,6 @@ h2{
 .short_desc_coin_wrapper{
   width: 40vw;
   height: 100%;
-  /*background-image: url('https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Flarge-home-389271.jpg?v=1634918378220');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;*/
   border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
   position: relative;
   display: flex;
@@ -349,18 +311,19 @@ h2{
   height: 3em;
 }
 .graph_coin_wrapper{
-  width: 45vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 45vw;
+  margin: 1em 2em 1em 0em;
 }
 .graph_wrapper{
-  display: column;
   justify-content: center;
   align-items: center;
   width: 80%;
   height: 80%;
   background-color: white;
+  border-radius: 2vh 2vh 2vh 2vh;
 }
 .open_graph{
   background-color: rgba(93, 87, 107, 0);
@@ -376,55 +339,24 @@ h2{
 /* ====== Mobile Finder ====== */
 @media only screen and (max-width: 1030px) {
   .finder_container{
-    margin-top: 5vh;
     width: 100vw;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;  
   }
   .finder_item{
-    display: flex;
     flex-direction: column;
     width: 95vw;
-    height: auto;
-    background-color: rgba(204, 221, 226, 0.6);
-    border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
   }
   .short_desc_coin_wrapper{
     width: 100%;
-    height: 100%;
-    border-radius: 7.5vh 7.5vh 7.5vh 7.5vh;
-    position: relative;
-    display: flex;
     flex-direction: column;
-  }
-  .coin_column_wide{
-    width: 100%;
-    padding: 0.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .coin_column_small{
     padding-top: 20px;
-    display: flex;
-    justify-content: center;
   }
   .coin_info_wrapper{
-    width: 100%;
     height: 1.5em;
     font-size: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .info_column{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
   }
   .coin_icon{
@@ -433,29 +365,19 @@ h2{
   }
   .graph_coin_wrapper{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    max-width: 80vw;
+    margin: 20px;
   }
   .graph_wrapper{
     display: column;
-    justify-content: center;
-    align-items: center;
     width: 80%;
     height: 80%;
-    background-color: white;
   }
   .open_graph{
-    background-color: rgba(93, 87, 107, 0);
-    color: black;
-    font-size: 1em;
     position: static;
     right: auto;
     top:auto;
     transform: rotate(0deg);
-    font-family: "Lato", sans-serif;
-    border-radius: 1em;
     margin-bottom: 20px;
   }
 }
