@@ -289,9 +289,10 @@ h2{
 }
 .coin_column_small{
   min-width: 9em;
-  padding-top: 3em;
+  padding-top: 3.25em;
   display: flex;
   justify-content: center;
+  align-items: start;
 }
 .coin_info_wrapper{
   width: 100%;
@@ -380,6 +381,20 @@ h2{
     transform: rotate(0deg);
     margin-bottom: 20px;
   }
+  .close_button{
+    width: 20px;
+    height:20px;
+  }
+}
+.close_button_wrapper{
+  background-color: rgba(255, 255, 255, 0);
+  border: 0;
+  cursor:pointer;
+  border-radius: 2em;
+}
+.close_button{
+  width: 40px;
+  height: 40px;
 }
 /* ====== Dark Mode ====== */
 .dark_mode_button{

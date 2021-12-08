@@ -139,10 +139,15 @@ async function add_currency_to_watch() {
   watched_currencies.push(currency);
   update_data_list(coins);
   finder_container.innerHTML += `
-  <div class="finder_item">
+  <div class="finder_item" id="${currency.name}_wrapper">
     <div class="short_desc_coin_wrapper">
       <div class="coin_column_small">
-        <img class="coin_icon" src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2F1175251_bitcoin_btc_cryptocurrency_icon.svg?v=1638100220235">
+      <button class="close_button_wrapper"  onclick=remove_currency('${currency.name}_wrapper')>
+                    <img
+                        class="close_button"
+                        src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fclose-circle-line.png?v=1638979457007"
+                    />
+                    </button>
       </div>
       <div class="coin_column_wide">
         <div class="coin_info_wrapper">
@@ -229,4 +234,9 @@ function darkMode() {
     document.getElementById("dark_mode_img").src =
       "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274";
   }
+}
+
+function remove_currency(Div) {
+  var element = document.getElementById(Div);
+  element.remove();
 }
