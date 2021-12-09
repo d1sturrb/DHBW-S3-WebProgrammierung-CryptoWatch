@@ -26,7 +26,8 @@ function searchFromLandingPage() {
 }
 
 function CryptoWatch() {
-  location.href = "./index.html";
+  /*location.href = "./index.html";*/
+  location.reload()
 }
 
 async function load_all_coins(per_request_limit = 2000) {
