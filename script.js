@@ -1,3 +1,4 @@
+/* Opens the Grap Part of the Finder Object */
 function showDiv(Div) {
   var x = document.getElementById(Div);
   if (x.style.display == "none") {
@@ -5,6 +6,12 @@ function showDiv(Div) {
   } else {
     x.style.display = "none";
   }
+}
+
+/* Removes a Currency from the Screen */
+function remove_currency(Div) {
+  var element = document.getElementById(Div);
+  element.remove();
 }
 
 /*
@@ -35,6 +42,12 @@ async function load_all_coins(per_request_limit = 2000) {
   const json = await response.json();
   coins = json;
   return coins;
+}
+
+function remove_all_children(element) {
+  element.childNodes.forEach((childNode) => {
+    childNode.remove();
+  });
 }
 
 function search_currencies() {
@@ -229,9 +242,4 @@ function darkMode() {
     document.getElementById("dark_mode_img").src =
       "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274";
   }
-}
-
-function remove_currency(Div) {
-  var element = document.getElementById(Div);
-  element.remove();
 }
