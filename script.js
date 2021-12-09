@@ -14,23 +14,13 @@ function remove_currency(Div) {
   element.remove();
 }
 
+
 /*
 setTimeout(function(){
   alert("Sup! Boi"); 
 }, 20000);
 */
 
-function searchFromLandingPage() {
-  /*location.href="./finder.html"*/
-  let used_form = document.getElementById("form_search_landing_page");
-  searched_currency = used_form.elements[0].value;
-
-  fiat_currency = document.querySelector(
-    "input[name='fiat_currency']:checked"
-  ).value;
-
-  alert("Getting " + searched_currency + "/" + fiat_currency);
-}
 
 function CryptoWatch() {
   /*location.href = "./index.html";*/
@@ -43,6 +33,7 @@ async function load_all_coins(per_request_limit = 2000) {
   coins = json;
   return coins;
 }
+
 
 function remove_all_children(element) {
   element.childNodes.forEach((childNode) => {
@@ -118,6 +109,7 @@ function create_plot(currency, currency_data) {
 }
 
 async function add_currency_to_watch() {
+  selected_fiat_currency = document.querySelector('input[name=fiat_currency]:checked').value  /* Get selected FIAT-Currency from Radio Buttons */
   const currency_id = search_box.value;
   const currency = coins.filter((currency) => {
     return currency.name === currency_id;
@@ -153,7 +145,7 @@ async function add_currency_to_watch() {
       <button class="close_button_wrapper"  onclick="remove_currency('${currency.name}_wrapper')">
                     <img
                         class="close_button"
-                        src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fclose-circle-line.png?v=1638979457007"
+                        src="http://cdn.onlinewebfonts.com/svg/img_211963.png"
                     />
                     </button>
       </div>
@@ -165,7 +157,7 @@ async function add_currency_to_watch() {
           <div class="info_column">
             <p class="coin_value">${Intl.NumberFormat("de-DE", {
               style: "currency",
-              currency: "USD",
+              currency: selected_fiat_currency,  /* Get selected FIAT-Currency from Radio Buttons */
             }).format(today[today.length - 1].price)}</p>
           </div>
         </div>
