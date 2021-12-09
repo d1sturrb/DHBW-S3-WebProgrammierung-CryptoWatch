@@ -48,12 +48,6 @@ function search_currencies() {
   update_data_list(currencies);
 }
 
-function remove_all_children(element) {
-  element.childNodes.forEach((childNode) => {
-    childNode.remove();
-  });
-}
-
 function update_data_list(currencies) {
   remove_all_children(search_listing_recommendations);
   let options = [];
@@ -142,7 +136,7 @@ async function add_currency_to_watch() {
   <div class="finder_item" id="${currency.name}_wrapper">
     <div class="short_desc_coin_wrapper">
       <div class="coin_column_small">
-      <button class="close_button_wrapper"  onclick=remove_currency('${currency.name}_wrapper')>
+      <button class="close_button_wrapper"  onclick="remove_currency('${currency.name}_wrapper')">
                     <img
                         class="close_button"
                         src="https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fclose-circle-line.png?v=1638979457007"
