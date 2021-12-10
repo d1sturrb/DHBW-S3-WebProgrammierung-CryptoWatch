@@ -220,18 +220,20 @@ search_box.addEventListener("change", add_currency_to_watch);
 load_all_coins().then((coins) => update_data_list(coins));
 console.log(coins);
 
+
+
 function darkMode() {
   var darkBody = document.body;
   darkBody.classList.toggle("body_dark_mode");
 
   if (
     document.getElementById("dark_mode_img").src ==
-    "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274"
+    "pictures/sun.svg"
   ) {
     document.getElementById("dark_mode_img").src =
-      "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fcontrast-2-line.svg?v=1638406942274";
+      "pictures/moon.svg";
   } else {
     document.getElementById("dark_mode_img").src =
-      "https://cdn.glitch.me/d77ae1d5-67ec-4b34-8bd3-2dedbeb4d130%2Fsun-line.svg?v=1638406942274";
+      "pictures/sun.svg";
   }
 }
