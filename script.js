@@ -265,10 +265,10 @@ function toggle_dark_mode(darkmode_enabled=null) {
   if (darkmode_enabled === null){ darkmode_enabled=false; }
 
   else if(darkmode_enabled){
-    // document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
   }
   else {
-    // document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
   }
 
 
