@@ -1,3 +1,15 @@
+// Attributes
+
+
+
+/* Save:
+  - selected Darkmode-Decision
+  - selected FIAT and Crypto-Currencies
+  (-amount of website used)
+*/
+
+
+
 /* Opens the Grap Part of the Finder Object */
 function showDiv(Div) {
   var x = document.getElementById(Div);
@@ -8,6 +20,7 @@ function showDiv(Div) {
   }
 }
 
+//TODO Bilddatei durch CSS ersetzen
 /* Removes a Currency from the Screen */
 function remove_currency(Div) {
   var element = document.getElementById(Div);
@@ -221,19 +234,59 @@ load_all_coins().then((coins) => update_data_list(coins));
 console.log(coins);
 
 
+// ======================================================================
 
-function darkMode() {
+/* Toggle the DarkMode */
+
+function clearStorage(){
+  localStorage.clear();
+  window.location.reload();
+}
+
+/* Default value for Storage */
+
+let darkmode_enabled = localStorage.getItem("darkmode_enabled");
+console.log("Dingsbums", darkmode_enabled)
+// if (darkmode_enabled === null || !darkmode_enabled) {
+//   darkmode_enabled = false; // default value
+//   darkBody.classList.toggle("body_dark_mode", false);
+//   console.log("Zu Beginn Hell");
+// }
+// else {
+//   document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+//   darkBody.classList.toggle("body_dark_mode", true);
+//   console.log("Zu Beginn dunkel");
+// }
+
+
+function toggle_dark_mode(darkmode_enabled=null) {
+  darkmode_enabled = localStorage.getItem("darkmode_enabled");
+
+  if (darkmode_enabled === null){ darkmode_enabled=false; }
+
+  else if(darkmode_enabled){
+    // document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+  }
+  else {
+    // document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+  }
+
+
   var darkBody = document.body;
   darkBody.classList.toggle("body_dark_mode");
+  console.log("----------")
 
-  if (
-    document.getElementById("dark_mode_img").src ==
-    "pictures/sun.svg"
-  ) {
-    document.getElementById("dark_mode_img").src =
-      "pictures/moon.svg";
-  } else {
-    document.getElementById("dark_mode_img").src =
-      "pictures/sun.svg";
+
+
+  darkmode_enabled = !darkmode_enabled;
+  localStorage.setItem("darkmode_enabled", darkmode_enabled)
+
+  if (darkmode_enabled) {
+    console.log("true")
+    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+  }
+  else {
+    console.log("false")
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
   }
 }
