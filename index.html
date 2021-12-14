@@ -41,18 +41,18 @@
                             
                         </form>
                     </div>
-                    <div class="radio_wrapper">
-                        <label class="radio_label">
-                            <span class="radio_name">Currency: €</span>
-                            <input class="radio_button" type="radio" 
-                                id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
-                            <span class="radio_checkmark"></span>
-                        </label>
-            
+                    <div class="radio_wrapper" onclick=save_preset_fiat_currency()>
                         <label class="radio_label">
                             <span class="radio_name">Currency: $</span>
                             <input class="radio_button" type="radio" 
                                 id="radio_USD" name="fiat_currency" value="USD"/>
+                            <span class="radio_checkmark"></span>
+                        </label>
+            
+                        <label class="radio_label">
+                            <span class="radio_name">Currency: €</span>
+                            <input class="radio_button" type="radio" 
+                                id="radio_EUR" name="fiat_currency" value="EUR"/>
                             <span class="radio_checkmark"></span>
                         </label>
                     </div>

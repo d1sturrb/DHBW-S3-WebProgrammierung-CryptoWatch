@@ -275,6 +275,7 @@ function get_currency_card(currency) {
   if ("element" in currency) {
     return currency["element"]
   }
+  
   const element = document.createElement("div")
   element.classList.add("finder_item")
   element.id = `${currency.id}_wrapper`
@@ -429,11 +430,10 @@ function get_preset_dark_mode(){
   return darkmode_enabled;
 }
 
-darkmode_enabled = get_preset_dark_mode();
-//darkBody.classList.toggle("body_dark_mode");
 
+// Toggles the darkmode every time the darkmode-Button is clicked
 function toggle_dark_mode() {
-
+  
   if(darkmode_enabled){
     document.getElementById("dark_mode_img").src = "pictures/sun.svg";
     document.body.style.backgroundColor = 'rgb(' + 147 + ',' + 163 + ',' + 188 + ')';
@@ -444,5 +444,34 @@ function toggle_dark_mode() {
   }
 
   darkmode_enabled = !darkmode_enabled;
-  localStorage.setItem("darkmode_enabled", darkmode_enabled)
+  localStorage.setItem("darkmode_enabled", darkmode_enabled);
 }
+
+darkmode_enabled = get_preset_dark_mode();
+//darkBody.classList.toggle("body_dark_mode");
+
+
+
+
+/* Get the selected FIAT-Currency from localStorage */
+function get_preset_fiat_currency(){
+  let fiat_currency = localStorage.getItem("fiat_currency");
+
+  if (fiat_currency === null) {
+    fiat_currency = "USD";
+    document.getElementById("radio_USD").checked = true;
+  }
+  else if (fiat_currency == "USD"){ document.getElementById("radio_USD").checked = true; }
+  else { document.getElementById("radio_EUR").checked = true; }
+
+  return fiat_currency;
+}
+
+/* Save the selected FIAT-Currency in localStorage */
+function save_preset_fiat_currency() {
+  current_fiat_currency = document.querySelector('input[name=fiat_currency]:checked').value;  /* Get selected FIAT-Currency from Radio Buttons */
+  localStorage.setItem("fiat_currency", current_fiat_currency);
+  console.log("Fiat is now:", current_fiat_currency)
+}
+
+let fiat_currency = get_preset_fiat_currency();
