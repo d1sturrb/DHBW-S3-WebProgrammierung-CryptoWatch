@@ -24,13 +24,11 @@ function find_button(event) {
   }
   return element
 }
-
 /**
  * Zeigt den Graphen einer Währung an.
  * @param {event} event - Das Event
  */
 function show_graph(event) {
-  console.log(event)
   const button = find_button(event)
   const currency = get_currency_by_id(button.name)
   const graph_wrapper = currency.element.getElementsByClassName("graph_coin_wrapper")[0]
@@ -74,9 +72,14 @@ async function load_all_coins() {
   const watched_currencies = get_watched_currencies()
 
   // Jede Währung im Speicher durchgehen und Anzeigen
-  watched_currencies.forEach(currency => {
-    add_currency_to_watch(currency)
-  })
+  // TODO: Das warten besser machen, noch gibt es immer wieder Fehler (429)
+  // Vielleicht doch einen Manager mit Fehlermanagement einbauen...?
+  for (const currency of watched_currencies) {
+    await add_currency_to_watch(currency)
+    await new Promise(resolve => {
+      setTimeout(resolve, 500) // Timeout von 0.5 Sekunden, da wir maximal 10 Anfragen / Sekunde machen dürfen & etwas Puffer dabei sein soll.
+    })
+  }
 }
 
 /**
@@ -87,7 +90,6 @@ async function load_all_coins() {
  */
 function filter_recommended_currencies() {
   const watched_currencies = get_watched_currencies()
-  console.log(watched_currencies)
   let recommended_currencies = coins.filter((currency) => {
     // falls die gesuchte Währung bereits in der Anzeige ist, nicht wieder vorschlagen
     if (watched_currencies.includes(currency.id)) {
@@ -116,18 +118,16 @@ function filter_recommended_currencies() {
 /**
  * Erstellt einen Plot und fügt diesen in das dazugehörige Element ein.
  * @param {Object} currency - Metadaten der Währung, Objekt aus der globalen "coins"-Liste
- * @param {Object} currency_data - Historische Daten zu dem Coin, erhalten aus der Coinpaprika-API
  */
-function create_plot(currency, currency_data) {
+function create_plot(currency) {
   // Canvas-Element für den Plot holen
-  const ctx = document.getElementById(`graph_${currency.name}`)
-
+  const ctx = currency.element.getElementsByClassName("graph")[0]
   const config = {
     type: "line",
     data: {
       datasets: [
         {
-          data: currency_data,
+          data: currency.historical_data,
         },
       ],
     },
@@ -160,7 +160,8 @@ async function fetch_extended_coin_data(currency) {
   if ("extended_information" in currency) {
     return
   }
-  currency["extended_information"] = await(await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}`)).json()
+  let promise = await fetch(`https://api.coinpaprika.com/v1/coins/${currency.id}`)
+  currency["extended_information"] = await promise.json()
 }
 
 /**
