@@ -55,13 +55,9 @@ function remove_currency(event) {
   remove_watched_currency(currency)
 }
 
-function CryptoWatch() {
-  /*location.href = "./index.html";*/
-  location.reload()
-}
 
 /**
- * Läd alle Verfügbaren Coins von der API (api.coinpaprika.com)
+ * Lädt alle Verfügbaren Coins von der API (api.coinpaprika.com)
  * Speichert diese Coins in die globale Variable "coins"
  */
 async function load_all_coins() {
@@ -217,7 +213,7 @@ async function fetch_historical_data(currency) {
  * Hole alle überwachten Währungen aus dem Lokalen Speicher
  * @returns Eine Liste mit allen Currency-IDs als Strings
  */
- function get_watched_currencies(){
+function get_watched_currencies(){
   let currencies = JSON.parse(localStorage.getItem("watched_currencies"))
   if (currencies === null) {
     currencies = []
@@ -416,50 +412,37 @@ function clearStorage(){
   window.location.reload();
 }
 
-/* Default value for Storage */
-
-let darkmode_enabled = localStorage.getItem("darkmode_enabled");
-console.log("Dingsbums", darkmode_enabled)
-// if (darkmode_enabled === null || !darkmode_enabled) {
-//   darkmode_enabled = false; // default value
-//   darkBody.classList.toggle("body_dark_mode", false);
-//   console.log("Zu Beginn Hell");
-// }
-// else {
-//   document.getElementById("dark_mode_img").src = "pictures/moon.svg";
-//   darkBody.classList.toggle("body_dark_mode", true);
-//   console.log("Zu Beginn dunkel");
-// }
-
-
-function toggle_dark_mode(darkmode_enabled=null) {
-  darkmode_enabled = localStorage.getItem("darkmode_enabled");
-
-  if (darkmode_enabled === null){ darkmode_enabled=false; }
-
-  else if(darkmode_enabled){
+/* Default value for Storage of DarkMode-Presets */
+function get_preset_dark_mode(){
+  let darkmode_enabled = JSON.parse(localStorage.getItem("darkmode_enabled"))
+  if (darkmode_enabled === null) {
+    darkmode_enabled = false;
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.body.style.backgroundColor = 'rgb(' + 147 + ',' + 163 + ',' + 188 + ')';
+    }
+  
+  if (darkmode_enabled) {
     document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+    document.body.style.backgroundColor = 'rgb(' + 39 + ',' + 48 + ',' + 63 + ')';
+  }
+
+  return darkmode_enabled;
+}
+
+darkmode_enabled = get_preset_dark_mode();
+//darkBody.classList.toggle("body_dark_mode");
+
+function toggle_dark_mode() {
+
+  if(darkmode_enabled){
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.body.style.backgroundColor = 'rgb(' + 147 + ',' + 163 + ',' + 188 + ')';
   }
   else {
-    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+    document.body.style.backgroundColor = 'rgb(' + 39 + ',' + 48 + ',' + 63 + ')';
   }
-
-
-  var darkBody = document.body;
-  darkBody.classList.toggle("body_dark_mode");
-  console.log("----------")
-
-
 
   darkmode_enabled = !darkmode_enabled;
   localStorage.setItem("darkmode_enabled", darkmode_enabled)
-
-  if (darkmode_enabled) {
-    console.log("true")
-    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
-  }
-  else {
-    console.log("false")
-    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
-  }
 }
