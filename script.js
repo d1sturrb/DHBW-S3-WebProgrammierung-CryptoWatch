@@ -63,7 +63,7 @@ function remove_currency(event) {
 async function load_all_coins() {
   const response = await fetch("https://api.coinpaprika.com/v1/tickers/")
   coins = await response.json()
-  // Nach dem die Coins geladen wurden, müssen diese auch in den Suchvoerschlägen angezeigt werden
+  // Nach dem die Coins geladen wurden, müssen diese auch in den Suchvorschlägen angezeigt werden
   filter_recommended_currencies()
 
   // zum Schluss noch die Währungen aus der letzten Sitzung anzeigen.
@@ -267,6 +267,7 @@ function get_currency_by_id(currency_id){
 }
 
 /**
+ * get_exchange_course(coin_amount)
  * Gibt das zu der Währung gehörende Element zurück, falls noch keins Existiert, wird eins erstellt.
  * @param {object} currency - Metadaten der Währung, Objekt aus der globalen "coins"-Liste 
  * @returns Das zu der Währung gehörende Element für das DOM
@@ -275,7 +276,7 @@ function get_currency_card(currency) {
   if ("element" in currency) {
     return currency["element"]
   }
-  
+  const currency_price = Intl.NumberFormat("de-DE", {style: "currency", currency: "USD",}).format(currency.quotes["USD"].ath_price)
   const element = document.createElement("div")
   element.classList.add("finder_item")
   element.id = `${currency.id}_wrapper`
@@ -296,10 +297,7 @@ function get_currency_card(currency) {
           </div>
           <div class="info_column">
             <p class="coin_value">
-              ${Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "USD",
-              }).format(currency.quotes["USD"].ath_price)}
+              ${currency_price}
             </p>
           </div>
         </div>
@@ -475,3 +473,50 @@ function save_preset_fiat_currency() {
 }
 
 let fiat_currency = get_preset_fiat_currency();
+
+/* Get the Exchange Course from the EZB */
+/*
+const host_exchange = 'api.frankfurter.app';
+fetch(`https://${host_exchange}/latest?amount=68000&from=USD&to=EUR`)
+  .then(resp => resp.json())
+  .then((data) => {
+    alert(`68000 USD = ${data.rates.EUR} EUR`);
+  });
+*/
+
+const host_exchange = 'api.frankfurter.app';
+/* var course_rate */
+async function get_exchange_course(coin_amount) {
+  await fetch(`https://${host_exchange}/latest?amount=${coin_amount}&from=USD&to=EUR`)
+  .then(resp => resp.json())
+  .then((data) => {
+    var eur_price = data.rates.EUR;
+  });
+  return eur_price
+  }
+
+
+ /* alert(await (await get_exchange_course(13)).text())*/
+
+alert(get_exchange_course(13)) 
+
+
+
+
+  /**
+ 
+
+const host_exchange = 'api.frankfurter.app';
+var course_rate
+async function get_exchange_course(coin_amount) {
+  const response_exchange = await fetch(`https://${host_exchange}/latest?amount=${coin_amount}&from=USD&to=EUR`)
+  exchange = await response_exchange.json()
+  response.json().then(data => {
+    exchange.rates.EUR course_rate
+  });
+  course_rate = exchange.rates.EUR
+  return course_rate
+  }
+
+
+ */
