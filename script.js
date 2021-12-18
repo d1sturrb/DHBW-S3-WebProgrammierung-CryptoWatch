@@ -12,7 +12,7 @@
  * Findet den Auslösenden Knopf eines Events
  * @param {array} event - die .path Eigenschaft eines Events
  */
-function find_button(event) {
+ function find_button(event) {
   // Dieses durchreisen des Path-Arrays ist notwendig, da z.B. ein Bild in einem
   // Knopf als auslöser gelten könnte (je nach Padding & co)
   let element = event.target
@@ -53,19 +53,15 @@ function remove_currency(event) {
   remove_watched_currency(currency)
 }
 
-function CryptoWatch() {
-  /*location.href = "./index.html";*/
-  location.reload()
-}
 
 /**
- * Läd alle Verfügbaren Coins von der API (api.coinpaprika.com)
+ * Lädt alle Verfügbaren Coins von der API (api.coinpaprika.com)
  * Speichert diese Coins in die globale Variable "coins"
  */
 async function load_all_coins() {
   const response = await fetch("https://api.coinpaprika.com/v1/tickers/")
   coins = await response.json()
-  // Nach dem die Coins geladen wurden, müssen diese auch in den Suchvoerschlägen angezeigt werden
+  // Nach dem die Coins geladen wurden, müssen diese auch in den Suchvorschlägen angezeigt werden
   filter_recommended_currencies()
 
   // zum Schluss noch die Währungen aus der letzten Sitzung anzeigen.
@@ -218,7 +214,7 @@ async function fetch_historical_data(currency) {
  * Hole alle überwachten Währungen aus dem Lokalen Speicher
  * @returns Eine Liste mit allen Currency-IDs als Strings
  */
- function get_watched_currencies(){
+function get_watched_currencies(){
   let currencies = JSON.parse(localStorage.getItem("watched_currencies"))
   if (currencies === null) {
     currencies = []
@@ -272,6 +268,7 @@ function get_currency_by_id(currency_id){
 }
 
 /**
+ * get_exchange_course(coin_amount)
  * Gibt das zu der Währung gehörende Element zurück, falls noch keins Existiert, wird eins erstellt.
  * @param {object} currency - Metadaten der Währung, Objekt aus der globalen "coins"-Liste 
  * @returns Das zu der Währung gehörende Element für das DOM
@@ -280,6 +277,53 @@ function get_currency_card(currency) {
   if ("element" in currency) {
     return currency["element"]
   }
+  /*const currency_price = Intl.NumberFormat("de-DE", 
+                                          {style: "currency", 
+                                          currency: "USD"})
+                                          .format(currency.quotes["USD"].ath_price)*/
+
+  
+  let currency_price = 0;
+  let market_cap = 0;
+  
+  if(fiat_currency == "USD"){
+    currency_price = Intl.NumberFormat("de-DE", 
+    {style: "currency", 
+    currency: "USD"})
+    .format(currency.quotes["USD"].price)
+    
+    market_cap = currency.quotes["USD"].market_cap
+    market_cap = Intl.NumberFormat("de-DE", 
+                        {style: "currency", 
+                        currency: "USD"})
+                        .format(market_cap)
+
+    console.log("USD", currency_price, "MarketCap", market_cap)
+  }
+
+  if(fiat_currency == "EUR") {
+    currency_price = currency.quotes["USD"].price
+    currency_price = (parseFloat(currency_price) * exchange_rate_usd_to_eur).toFixed(2);
+    currency_price = Intl.NumberFormat("de-DE", 
+                        {style: "currency", 
+                        currency: "EUR"})
+                        .format(currency_price)
+    
+    market_cap = currency.quotes["USD"].market_cap
+    
+    market_cap = (parseFloat(market_cap) * exchange_rate_usd_to_eur).toFixed(2);
+    market_cap = Intl.NumberFormat("de-DE", 
+                        {style: "currency", 
+                        currency: "EUR"})
+                        .format(market_cap)
+
+
+    console.log("EUR", currency_price, "MarketCap", market_cap)
+  }
+  
+
+  
+
   const element = document.createElement("div")
   element.classList.add("finder_item")
   element.id = `${currency.id}_wrapper`
@@ -300,10 +344,7 @@ function get_currency_card(currency) {
           </div>
           <div class="info_column">
             <p class="coin_value">
-              ${Intl.NumberFormat("de-DE", {
-                style: "currency",
-                currency: "USD",
-              }).format(currency.quotes["USD"].ath_price)}
+              ${currency_price}
             </p>
           </div>
         </div>
@@ -346,6 +387,30 @@ function get_currency_card(currency) {
                 maximumFractionDigits: 2,
                 signDisplay: 'always',
               }).format(currency.quotes["USD"].percent_change_30d / 100)}
+            </p>
+          </div>
+        </div>
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">Price away from ATH</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">
+              ${Intl.NumberFormat("de-DE", {
+                style: "percent",
+                maximumFractionDigits: 2,
+                signDisplay: 'always',
+              }).format(currency.quotes["USD"].percent_from_price_ath * 0.01)}
+            </p>
+          </div>
+        </div>
+        <div class="coin_info_wrapper">
+          <div class="info_column">
+            <p class="coin_name">Market Capitalization</p>
+          </div>
+          <div class="info_column">
+            <p class="coin_value">
+              ${market_cap}
             </p>
           </div>
         </div>
@@ -417,50 +482,93 @@ function clearStorage(){
   window.location.reload();
 }
 
-/* Default value for Storage */
-
-let darkmode_enabled = localStorage.getItem("darkmode_enabled");
-console.log("Dingsbums", darkmode_enabled)
-// if (darkmode_enabled === null || !darkmode_enabled) {
-//   darkmode_enabled = false; // default value
-//   darkBody.classList.toggle("body_dark_mode", false);
-//   console.log("Zu Beginn Hell");
-// }
-// else {
-//   document.getElementById("dark_mode_img").src = "pictures/moon.svg";
-//   darkBody.classList.toggle("body_dark_mode", true);
-//   console.log("Zu Beginn dunkel");
-// }
-
-
-function toggle_dark_mode(darkmode_enabled=null) {
-  darkmode_enabled = localStorage.getItem("darkmode_enabled");
-
-  if (darkmode_enabled === null){ darkmode_enabled=false; }
-
-  else if(darkmode_enabled){
+/* Default value for Storage of DarkMode-Presets */
+function get_preset_dark_mode(){
+  let darkmode_enabled = JSON.parse(localStorage.getItem("darkmode_enabled"))
+  if (darkmode_enabled === null) {
+    darkmode_enabled = false;
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.body.style.backgroundColor = 'rgb(' + 147 + ',' + 163 + ',' + 188 + ')';
+    }
+  
+  if (darkmode_enabled) {
     document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+    document.body.style.backgroundColor = 'rgb(' + 39 + ',' + 48 + ',' + 63 + ')';
+  }
+
+  return darkmode_enabled;
+}
+
+
+// Toggles the darkmode every time the darkmode-Button is clicked
+function toggle_dark_mode() {
+  
+  if(darkmode_enabled){
+    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.body.style.backgroundColor = 'rgb(' + 147 + ',' + 163 + ',' + 188 + ')';
   }
   else {
-    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+    document.body.style.backgroundColor = 'rgb(' + 39 + ',' + 48 + ',' + 63 + ')';
   }
-
-
-  var darkBody = document.body;
-  darkBody.classList.toggle("body_dark_mode");
-  console.log("----------")
-
-
 
   darkmode_enabled = !darkmode_enabled;
-  localStorage.setItem("darkmode_enabled", darkmode_enabled)
+  localStorage.setItem("darkmode_enabled", darkmode_enabled);
+}
 
-  if (darkmode_enabled) {
-    console.log("true")
-    document.getElementById("dark_mode_img").src = "pictures/moon.svg";
+darkmode_enabled = get_preset_dark_mode();
+//darkBody.classList.toggle("body_dark_mode");
+
+
+
+
+/* Get the selected FIAT-Currency from localStorage */
+function get_preset_fiat_currency(){
+  let fiat_currency = localStorage.getItem("fiat_currency");
+
+  if (fiat_currency === null) {
+    fiat_currency = "USD";
+    document.getElementById("radio_USD").checked = true;
+  }
+  else if (fiat_currency == "USD"){ document.getElementById("radio_USD").checked = true; }
+  else { document.getElementById("radio_EUR").checked = true; }
+
+  return fiat_currency;
+}
+
+
+/* Save the selected FIAT-Currency in localStorage */
+function save_preset_fiat_currency() {
+  current_fiat_currency = document.querySelector('input[name=fiat_currency]:checked').value;  /* Get selected FIAT-Currency from Radio Buttons */
+  stored_fiat_currency = localStorage.getItem("fiat_currency")
+  //console.log("Fiat is now:", current_fiat_currency)
+  if(stored_fiat_currency == current_fiat_currency){
+    //pass
   }
   else {
-    console.log("false")
-    document.getElementById("dark_mode_img").src = "pictures/sun.svg";
+    localStorage.setItem("fiat_currency", current_fiat_currency);
+    location.reload()
   }
+
 }
+
+var fiat_currency = get_preset_fiat_currency();
+var exchange_rate_usd_to_eur = 0.88
+
+
+
+/* Get the Exchange Course from the EZB */
+/*
+
+var exchange_rate = 0;
+
+const host_exchange = 'api.frankfurter.app';
+fetch(`https://${host_exchange}/latest?amount=1&from=USD&to=EUR`)
+  .then(resp => resp.json())
+  .then((data) => {
+    alert(`1 USD = ${data.rates.EUR} EUR`);
+    exchange_rate = data.rates.EUR;
+  });
+
+console.log(exchange_rate);
+*/

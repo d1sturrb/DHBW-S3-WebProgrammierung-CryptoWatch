@@ -23,7 +23,7 @@
         <div class="nav">
             <div class="nav-container">
                 <div class="nav-column-logo">
-                    <button class="company_name_text" id="nav_company_name_text" onclick=CryptoWatch()>Crypto Watch</button>
+                    <a href="index.html" class="company_name_text" id="nav_company_name_text">Crypto Watch</a>
                 </div>
 
                 <div class="nav-column-search">
@@ -41,18 +41,18 @@
                             
                         </form>
                     </div>
-                    <div class="radio_wrapper">
-                        <label class="radio_label">
-                            <span class="radio_name">Currency: €</span>
-                            <input class="radio_button" type="radio" 
-                                id="radio_EUR" name="fiat_currency" value="EUR" checked="checked"/>
-                            <span class="radio_checkmark"></span>
-                        </label>
-            
+                    <div class="radio_wrapper" onclick=save_preset_fiat_currency()>
                         <label class="radio_label">
                             <span class="radio_name">Currency: $</span>
                             <input class="radio_button" type="radio" 
                                 id="radio_USD" name="fiat_currency" value="USD"/>
+                            <span class="radio_checkmark"></span>
+                        </label>
+            
+                        <label class="radio_label">
+                            <span class="radio_name">Currency: €</span>
+                            <input class="radio_button" type="radio" 
+                                id="radio_EUR" name="fiat_currency" value="EUR"/>
                             <span class="radio_checkmark"></span>
                         </label>
                     </div>
@@ -66,12 +66,12 @@
                         src="pictures/sun.svg"
                     />
                     </button>
-                    <button onclick=clearStorage()>Clear Storage</button>
-                </div>        
+                </div>
             </div>
         </div>
         <div id="finder_container" class="finder_container">
         </div>
+        <button onclick=clearStorage()>Clear localStorage</button>
     </body>
 
     
