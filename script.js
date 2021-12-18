@@ -34,7 +34,7 @@ function show_graph(event) {
   const graph_wrapper = currency.element.getElementsByClassName("graph_coin_wrapper")[0]
   
   if (graph_wrapper.style.display == "none") {
-    graph_wrapper.style.display = "flex";
+    graph_wrapper.style.display = "block";
   } else {
     graph_wrapper.style.display = "none";
   }
@@ -123,21 +123,22 @@ function create_plot(currency) {
     data: {
       datasets: [
         {
+          label: "Preis",
           data: currency.historical_data,
+          parsing: {
+            xAxisKey: "time_open",
+            yAxisKey: "open",
+          },
         },
       ],
     },
     options: {
-      parsing: {
-        xAxisKey: "time_open",
-        yAxisKey: "open",
-      },
       scales: {
         x: {
-          //type: "time",
-          //time: {
-          //  unit: "minute",
-          //},
+          type: "time",
+          time: {
+            unit: "day",
+          },
         },
       },
     },
@@ -419,8 +420,8 @@ function get_currency_card(currency) {
         <button class="open_graph" name="${currency.id}"/>Open Graph</button>
       </div>
     </div>
-    <div class="graph_coin_wrapper"style="display: none;">
-      <canvas class="graph" height="100%"></canvas>
+    <div class="graph_coin_wrapper" style="display: block;">
+      <canvas class="graph"></canvas>
     </div>
   `
 
