@@ -269,7 +269,6 @@ function get_currency_by_id(currency_id){
 }
 
 /**
- * get_exchange_course(coin_amount)
  * Gibt das zu der Währung gehörende Element zurück, falls noch keins Existiert, wird eins erstellt.
  * @param {object} currency - Metadaten der Währung, Objekt aus der globalen "coins"-Liste 
  * @returns Das zu der Währung gehörende Element für das DOM
@@ -278,26 +277,25 @@ function get_currency_card(currency) {
   if ("element" in currency) {
     return currency["element"]
   }
-  /*const currency_price = Intl.NumberFormat("de-DE", 
-                                          {style: "currency", 
-                                          currency: "USD"})
-                                          .format(currency.quotes["USD"].ath_price)*/
 
-  
-  let currency_price = 0;
-  let market_cap = 0;
+  /**
+   * Werte anhand der richtigen FIAT-Währung richtig darstellen und umrechnen.
+   */
+  let currency_price;
+  let market_cap;
   
   if(fiat_currency == "USD"){
     currency_price = Intl.NumberFormat("de-DE", 
-    {style: "currency", 
-    currency: "USD"})
-    .format(currency.quotes["USD"].price)
+                        {style: "currency", 
+                        currency: "USD"})
+                        .format(currency.quotes["USD"].price)
     
     market_cap = currency.quotes["USD"].market_cap
     market_cap = Intl.NumberFormat("de-DE", 
                         {style: "currency", 
                         currency: "USD"})
                         .format(market_cap)
+
 
     console.log("USD", currency_price, "MarketCap", market_cap)
   }
@@ -311,7 +309,6 @@ function get_currency_card(currency) {
                         .format(currency_price)
     
     market_cap = currency.quotes["USD"].market_cap
-    
     market_cap = (parseFloat(market_cap) * exchange_rate_usd_to_eur).toFixed(2);
     market_cap = Intl.NumberFormat("de-DE", 
                         {style: "currency", 
