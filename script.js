@@ -473,12 +473,14 @@ load_all_coins()
 
 // ======================================================================
 
-/* Toggle the DarkMode */
-
+/** For the ,,Clear localStorage"-Button [Developing]
 function clearStorage(){
   localStorage.clear();
   window.location.reload();
 }
+*/
+
+/* Toggle the DarkMode */
 
 /* Default value for Storage of DarkMode-Presets */
 function get_preset_dark_mode(){
